@@ -9,10 +9,6 @@
 
 <style>
 
-*{
-box-sizing:border-box;
-}
-
 body{
 margin:0;
 font-family:Arial,sans-serif;
@@ -20,34 +16,25 @@ background:linear-gradient(#00bfff,#001f3f);
 color:white;
 }
 
-
 header{
 text-align:center;
 padding:60px 20px;
-background:rgba(0,0,0,0.25);
+background:rgba(0,0,0,.3);
 }
-
 
 .logo{
 font-size:100px;
 animation:float 2s infinite alternate;
 }
 
-
 @keyframes float{
-from{
-transform:translateY(0);
+from{transform:translateY(0)}
+to{transform:translateY(-20px)}
 }
-to{
-transform:translateY(-20px);
-}
-}
-
 
 h1{
 font-size:50px;
 }
-
 
 section{
 width:90%;
@@ -55,120 +42,59 @@ max-width:900px;
 margin:30px auto;
 padding:25px;
 border-radius:25px;
-background:rgba(255,255,255,0.15);
+background:rgba(255,255,255,.15);
 backdrop-filter:blur(10px);
 }
 
-
 h2{
 color:#9eeaff;
-font-size:32px;
 }
 
+button{
+background:#00c3ff;
+color:white;
+border:0;
+padding:15px 35px;
+font-size:18px;
+border-radius:20px;
+cursor:pointer;
+}
 
+button:hover{
+background:#007bbd;
+}
 
 .gallery{
 text-align:center;
 }
 
-
 .gallery img{
-
 width:90%;
 max-width:600px;
 border-radius:25px;
 box-shadow:0 10px 25px black;
-
 }
 
-
-
 .fact{
-
 background:white;
 color:#123;
 margin:15px 0;
 padding:20px;
 border-radius:20px;
-
 }
 
-
-
-button{
-
-background:#00c3ff;
-color:white;
-border:none;
-padding:15px 35px;
-font-size:18px;
-border-radius:20px;
-cursor:pointer;
-
-}
-
-
-button:hover{
-
-background:#007bbd;
-
-}
-
-
-/* Крестики нолики */
-
-#game{
-
-display:grid;
-grid-template-columns:repeat(3,80px);
-gap:8px;
-justify-content:center;
-margin:20px;
-
-}
-
-
-#game div{
-
-width:80px;
-height:80px;
+#playersList li{
 background:white;
 color:#123;
-font-size:45px;
-border-radius:15px;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-
-}
-
-
-#game div:hover{
-
-background:#9eeaff;
-
-}
-
-
-#members li{
-
-list-style:none;
 margin:10px;
-background:white;
-color:#123;
 padding:10px;
 border-radius:15px;
-
+list-style:none;
 }
 
-
-
 footer{
-
 text-align:center;
 padding:30px;
-
 }
 
 </style>
@@ -179,19 +105,15 @@ padding:30px;
 <body>
 
 
-
 <header>
 
 <div class="logo">🦭</div>
 
 <h1>Seal World</h1>
 
-<p>
-Добро пожаловать в мир тюленей!
-</p>
+<p>Мир самых милых жителей океана 🌊</p>
 
 </header>
-
 
 
 
@@ -201,11 +123,10 @@ padding:30px;
 
 <p>
 Тюлени — морские млекопитающие.
-Они отлично плавают и живут в холодных водах.
+Они отлично плавают и живут в холодных морях.
 </p>
 
 </section>
-
 
 
 
@@ -223,87 +144,203 @@ padding:30px;
 
 
 
-
 <section>
 
 <h2>⭐ Интересные факты</h2>
-
 
 <div class="fact">
 🦭 Усы помогают тюленям чувствовать движение воды.
 </div>
 
-
 <div class="fact">
-❄️ Толстый слой жира защищает их от холода.
+❄️ Толстый слой жира защищает от холода.
 </div>
 
-
 <div class="fact">
-🌊 Некоторые тюлени могут долго быть под водой.
+🌊 Некоторые тюлени могут долго находиться под водой.
 </div>
-
 
 </section>
 
 
 
-
-
 <section style="text-align:center">
 
-<h2>💙 Тюлений клуб</h2>
+<h2>💙 Telegram клуб</h2>
 
-<p>
-Присоединяйся к нам в Telegram!
-</p>
+<p>Присоединяйся к нам!</p>
 
-
-<button onclick="joinClub()">
+<button onclick="openTelegram()">
 🦭 Вступить
 </button>
 
-
 </section>
-
-
 
 
 
 <section style="text-align:center">
 
-<h2>🎮 Крестики-нолики 🦭</h2>
+<h2>🏆 Таблица участников</h2>
 
-<p>
-Ты играешь ❌, бот играет ⭕
-</p>
-
-
-<div id="game">
-
-<div onclick="move(0)"></div>
-<div onclick="move(1)"></div>
-<div onclick="move(2)"></div>
-
-<div onclick="move(3)"></div>
-<div onclick="move(4)"></div>
-<div onclick="move(5)"></div>
-
-<div onclick="move(6)"></div>
-<div onclick="move(7)"></div>
-<div onclick="move(8)"></div>
-
-</div>
-
-
-<button onclick="restartGame()">
-🔄 Новая игра
+<button onclick="joinTable()">
+🦭 Вступить в таблицу
 </button>
 
 
+<ol id="playersList">
+Загрузка...
+</ol>
+
+
 </section>
+<script>
+
+function openTelegram(){
+
+window.location.href="https://t.me/SealKlub";
+
+}
+
+</script>
 
 
+
+<script type="module">
+
+
+import { initializeApp } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import { 
+getDatabase,
+ref,
+set,
+get
+} 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
+
+authDomain: "sealworld-c7969.firebaseapp.com",
+
+projectId: "sealworld-c7969",
+
+storageBucket: "sealworld-c7969.firebasestorage.app",
+
+messagingSenderId: "164301169854",
+
+appId: "1:164301169854:web:b757d8bcffe0e2892f6aef",
+
+measurementId: "G-QHSBB1W56Y"
+
+};
+
+
+
+const app = initializeApp(firebaseConfig);
+
+
+const db = getDatabase(app);
+
+
+
+
+
+window.joinTable = async function(){
+
+
+let nickname = prompt(
+"Введите свой ник 🦭"
+);
+
+
+
+if(nickname){
+
+
+await set(
+
+ref(db,"players/"+nickname),
+
+{
+
+name:nickname
+
+}
+
+);
+
+
+
+loadPlayers();
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+async function loadPlayers(){
+
+
+let list=document.getElementById("playersList");
+
+
+list.innerHTML="";
+
+
+
+let snapshot = await get(
+ref(db,"players")
+);
+
+
+
+let number=1;
+
+
+
+snapshot.forEach((player)=>{
+
+
+let li=document.createElement("li");
+
+
+li.innerHTML=
+number+". 🦭 "+player.val().name;
+
+
+
+list.appendChild(li);
+
+
+
+number++;
+
+
+});
+
+
+}
+
+
+
+loadPlayers();
+
+
+
+</script>
 
 
 
@@ -312,275 +349,6 @@ padding:30px;
 Создано с любовью к тюленям 🦭🍊
 
 </footer>
-
-
-
-
-
-<script>
-
-
-function joinClub(){
-
-window.location.href="https://t.me/SealKlub";
-
-}
-
-
-
-let board=[
-
-"","","",
-"","","",
-"","",""
-
-];
-
-
-let gameOver=false;
-
-
-
-function move(index){
-
-
-if(board[index]=="" && !gameOver){
-
-
-board[index]="❌";
-
-update();
-
-
-
-if(checkWinner("❌")){
-
-alert("Ты победил 🦭🎉");
-
-gameOver=true;
-
-return;
-
-}
-
-
-
-setTimeout(botMove,500);
-
-
-}
-
-
-}
-
-
-
-
-
-function botMove(){
-
-
-let move=findBestMove();
-
-
-
-if(move!=-1){
-
-board[move]="⭕";
-
-}
-
-
-update();
-
-
-
-if(checkWinner("⭕")){
-
-alert("Бот победил 🤖");
-
-gameOver=true;
-
-}
-
-
-}
-
-
-
-
-function findBestMove(){
-
-
-
-for(let i=0;i<9;i++){
-
-if(board[i]==""){
-
-board[i]="⭕";
-
-
-if(checkWinner("⭕")){
-
-board[i]="";
-
-return i;
-
-}
-
-
-board[i]="";
-
-}
-
-}
-
-
-
-
-
-for(let i=0;i<9;i++){
-
-if(board[i]==""){
-
-board[i]="❌";
-
-
-if(checkWinner("❌")){
-
-board[i]="";
-
-return i;
-
-}
-
-
-board[i]="";
-
-}
-
-}
-
-
-
-
-let empty=[];
-
-
-board.forEach((x,i)=>{
-
-if(x=="") empty.push(i);
-
-});
-
-
-if(empty.length){
-
-return empty[
-Math.floor(Math.random()*empty.length)
-];
-
-}
-
-
-return -1;
-
-
-}
-
-
-
-
-
-function checkWinner(player){
-
-
-let wins=[
-
-[0,1,2],
-[3,4,5],
-[6,7,8],
-
-[0,3,6],
-[1,4,7],
-[2,5,8],
-
-[0,4,8],
-[2,4,6]
-
-];
-
-
-
-for(let w of wins){
-
-
-if(
-
-board[w[0]]==player &&
-board[w[1]]==player &&
-board[w[2]]==player
-
-){
-
-return true;
-
-}
-
-
-}
-
-
-return false;
-
-
-}
-
-
-
-
-
-function update(){
-
-
-let cells=document.querySelectorAll("#game div");
-
-
-cells.forEach((cell,i)=>{
-
-cell.innerHTML=board[i];
-
-});
-
-
-}
-
-
-
-
-function restartGame(){
-
-
-board=[
-
-"","","",
-"","","",
-"","",""
-
-];
-
-
-gameOver=false;
-
-
-update();
-
-
-}
-
-
-
-</script>
 
 
 </body>
