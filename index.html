@@ -3,98 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мир тюленей 🦭</title>
+
+<title>Seal World 🦭</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(#8ed8ff, #ffffff);
-    color: #123;
-    text-align: center;
+
+*{
+    box-sizing:border-box;
 }
 
-header {
-    padding: 40px;
-    background: rgba(255,255,255,0.5);
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(#00bfff,#001f3f);
+    color:white;
 }
 
-h1 {
-    font-size: 45px;
+header{
+    text-align:center;
+    padding:60px 20px;
+    background:rgba(0,0,0,0.25);
 }
 
-.card {
-    background: white;
-    margin: 30px auto;
-    padding: 25px;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px #777;
+.logo{
+    font-size:100px;
+    animation:float 2s infinite alternate;
 }
 
-.seal {
-    font-size: 100px;
-    animation: swim 2s infinite alternate;
-}
-
-@keyframes swim {
-    from {
-        transform: translateY(0);
+@keyframes float{
+    from{
+        transform:translateY(0);
     }
-    to {
-        transform: translateY(-20px);
+    to{
+        transform:translateY(-20px);
     }
 }
 
-button {
-    background: #008cff;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 15px;
-    font-size: 18px;
-    cursor: pointer;
+h1{
+    font-size:50px;
 }
 
-button:hover {
-    background: #005fa8;
+section{
+    width:90%;
+    max-width:900px;
+    margin:30px auto;
+    padding:25px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
 }
+
+h2{
+    color:#9eeaff;
+    font-size:32px;
+}
+
+
+.gallery{
+    display:flex;
+    justify-content:center;
+}
+
+
+.gallery img{
+    width:90%;
+    max-width:600px;
+    border-radius:25px;
+    transition:0.3s;
+    box-shadow:0 10px 25px black;
+}
+
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+
+.fact{
+    background:white;
+    color:#123;
+    margin:15px 0;
+    padding:20px;
+    border-radius:20px;
+}
+
+
+button{
+    background:#00c3ff;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    font-size:18px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+
+button:hover{
+    background:#007bbd;
+}
+
+
+footer{
+    text-align:center;
+    padding:30px;
+    font-size:18px;
+}
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <header>
-    <div class="seal">🦭</div>
-    <h1>Мир тюленей</h1>
-    <p>Добро пожаловать на сайт о самых милых жителях океана!</p>
+
+<div class="logo">🦭</div>
+
+<h1>Seal World</h1>
+
+<p>Добро пожаловать в мир самых милых жителей океана!</p>
+
 </header>
 
-<div class="card">
-    <h2>О тюленях</h2>
-    <p>
-    Тюлени — это морские млекопитающие, которые отлично плавают
-    и могут жить в холодных водах.
-    </p>
+
+
+<section>
+
+<h2>🌊 Кто такие тюлени?</h2>
+
+<p>
+Тюлени — это морские млекопитающие.
+Они отлично плавают, живут в холодных водах
+и могут долго находиться под водой.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>📸 Главный житель сайта</h2>
+
+<div class="gallery">
+
+<img src="seal1.jpg" alt="Тюлень с мандаринкой">
+
 </div>
 
-<div class="card">
-    <h2>Интересный факт 🧊</h2>
-    <p>
-    Некоторые тюлени могут задерживать дыхание под водой
-    больше часа!
-    </p>
+</section>
+
+
+
+<section>
+
+<h2>⭐ Интересные факты</h2>
+
+
+<div class="fact">
+🦭 Усы тюленей помогают им чувствовать движение воды.
 </div>
 
-<div class="card">
-    <h2>Клуб любителей тюленей</h2>
-    <p>Стань частью сообщества 🦭</p>
-    <button onclick="alert('Добро пожаловать в клуб тюленей! 🦭')">
-        Вступить
-    </button>
+
+<div class="fact">
+🍊 Тюлени могут выглядеть очень мило, но они настоящие хищники.
 </div>
+
+
+<div class="fact">
+❄️ Толстый слой жира помогает им не замёрзнуть в холодном океане.
+</div>
+
+
+<div class="fact">
+🌊 Некоторые тюлени способны погружаться на большую глубину.
+</div>
+
+
+</section>
+
+
+
+<section style="text-align:center">
+
+<h2>💙 Клуб любителей тюленей</h2>
+
+<p>
+Стань частью команды Seal World!
+</p>
+
+<button onclick="alert('Добро пожаловать в клуб тюленей 🦭🍊')">
+Вступить
+</button>
+
+</section>
+
+
+
+<footer>
+
+Создано с любовью к тюленям 🦭
+
+</footer>
+
 
 </body>
 </html>
