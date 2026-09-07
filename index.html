@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,130 +8,197 @@
 
 <title>Seal World 🦭</title>
 
+
 <style>
 
 *{
 box-sizing:border-box;
 }
 
+
 body{
+
 margin:0;
 font-family:Arial,sans-serif;
 background:linear-gradient(#00bfff,#001f3f);
 color:white;
+
 }
+
 
 
 header{
+
 text-align:center;
 padding:60px 20px;
-background:rgba(0,0,0,0.3);
+background:rgba(0,0,0,.3);
+
 }
+
 
 
 .logo{
+
 font-size:100px;
 animation:float 2s infinite alternate;
+
 }
+
 
 
 @keyframes float{
+
 from{
 transform:translateY(0);
 }
+
 to{
 transform:translateY(-20px);
 }
+
 }
+
 
 
 h1{
+
 font-size:50px;
+
 }
 
 
+
 section{
+
 width:90%;
 max-width:900px;
 margin:30px auto;
 padding:25px;
+
+background:rgba(255,255,255,.15);
+
 border-radius:25px;
-background:rgba(255,255,255,0.15);
+
 backdrop-filter:blur(10px);
+
 }
+
 
 
 h2{
+
 color:#9eeaff;
+
 }
+
 
 
 button{
 
 background:#00c3ff;
 color:white;
-border:none;
-padding:15px 35px;
+
+border:0;
+
+padding:15px 30px;
+
 border-radius:20px;
+
 font-size:18px;
+
 cursor:pointer;
 
+margin:5px;
+
 }
+
 
 
 button:hover{
+
 background:#007bbd;
+
 }
+
 
 
 .gallery{
+
 text-align:center;
+
 }
+
 
 
 .gallery img{
 
 width:90%;
+
 max-width:600px;
+
 border-radius:25px;
+
 box-shadow:0 10px 25px black;
 
 }
 
 
+
 .fact{
 
 background:white;
+
 color:#123;
+
 padding:20px;
+
 margin:15px 0;
+
 border-radius:20px;
 
 }
 
 
+
 #playersList li{
 
 background:white;
+
 color:#123;
+
+padding:12px;
+
 margin:10px;
-padding:10px;
+
 border-radius:15px;
+
 list-style:none;
 
 }
 
 
+
+.admin{
+
+text-align:center;
+
+}
+
+
+
 footer{
 
 text-align:center;
+
 padding:30px;
 
 }
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -147,16 +215,21 @@ padding:30px;
 </header>
 
 
+
+
 <section>
 
 <h2>🌊 О тюленях</h2>
 
 <p>
+
 Тюлени — морские млекопитающие.
-Они отлично плавают и живут в холодных водах.
+Они отлично плавают и могут жить в холодных водах.
+
 </p>
 
 </section>
+
 
 
 
@@ -166,11 +239,12 @@ padding:30px;
 
 <div class="gallery">
 
-<img src="seal1.jpg">
+<img src="seal1.jpg" alt="Тюлень">
 
 </div>
 
 </section>
+
 
 
 
@@ -178,46 +252,78 @@ padding:30px;
 
 <h2>⭐ Интересные факты</h2>
 
-<div class="fact">
-🦭 Усы помогают тюленям чувствовать движение воды.
-</div>
 
 <div class="fact">
-❄️ Жировой слой защищает тюленей от холода.
+
+🦭 Усы тюленей помогают чувствовать движение воды.
+
 </div>
 
+
 <div class="fact">
+
+❄️ Толстый слой жира защищает от холода.
+
+</div>
+
+
+<div class="fact">
+
 🌊 Некоторые тюлени могут долго находиться под водой.
+
 </div>
+
 
 </section>
 
 
 
+
 <section style="text-align:center">
 
-<h2>💙 Наш Telegram</h2>
+
+<h2>💙 Telegram клуб</h2>
+
 
 <button onclick="telegram()">
+
 🦭 Вступить
+
 </button>
+
 
 </section>
 
 
 
+
 <section style="text-align:center">
 
-<h2>🏆 Таблица участников Seal World</h2>
+
+<h2>🏆 Таблица участников</h2>
 
 
 <button onclick="joinTable()">
+
 🦭 Добавить свой ник
+
+</button>
+
+
+<br>
+
+
+<button onclick="adminLogin()">
+
+⚙️ Администрация
+
 </button>
 
 
 <ol id="playersList">
+
 Загрузка...
+
 </ol>
 
 
@@ -242,16 +348,21 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
+
 getDatabase,
 ref,
 set,
 get
+
 }
+
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 
+
 const firebaseConfig = {
+
 
 apiKey: "AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
 
@@ -269,6 +380,7 @@ appId: "1:164301169854:web:b757d8bcffe0e2892f6aef",
 
 measurementId: "G-QHSBB1W56Y"
 
+
 };
 
 
@@ -280,18 +392,23 @@ const db = getDatabase(app);
 
 
 
+let adminMode=false;
+
+
+
 
 
 window.joinTable = async function(){
 
 
 let nickname = prompt(
-"Напиши свой ник 🦭"
+"Введите свой ник 🦭"
 );
 
 
 
 if(nickname && nickname.trim()!=""){
+
 
 
 await set(
@@ -320,7 +437,52 @@ loadPlayers();
 }
 
 
+
 }
+
+
+
+
+
+
+window.adminLogin=function(){
+
+
+let password = prompt(
+"Введите пароль администратора"
+);
+
+
+
+if(password==="AdminItsYa"){
+
+
+adminMode=true;
+
+
+alert(
+"Админ режим включён ⚙️🦭"
+);
+
+
+
+loadPlayers();
+
+
+
+}else{
+
+
+alert(
+"Неверный пароль ❌"
+);
+
+
+}
+
+
+}
+
 
 
 
@@ -332,6 +494,7 @@ async function loadPlayers(){
 let list=document.getElementById(
 "playersList"
 );
+
 
 
 list.innerHTML="";
@@ -354,8 +517,36 @@ snapshot.forEach((player)=>{
 let li=document.createElement("li");
 
 
+
 li.innerHTML =
 number+". 🦭 "+player.val().name;
+
+
+
+if(adminMode){
+
+
+
+let del=document.createElement("button");
+
+
+del.innerHTML="❌ Удалить";
+
+
+del.onclick=function(){
+
+
+deletePlayer(player.key);
+
+
+};
+
+
+
+li.appendChild(del);
+
+
+}
 
 
 
@@ -366,6 +557,54 @@ number++;
 
 
 });
+
+
+
+}
+
+
+
+
+
+
+async function deletePlayer(name){
+
+
+
+let confirmDelete = confirm(
+
+"Удалить "+name+"?"
+
+);
+
+
+
+if(confirmDelete){
+
+
+
+await set(
+
+ref(db,"players/"+name),
+
+null
+
+);
+
+
+
+alert(
+"Игрок удалён 🦭"
+);
+
+
+
+loadPlayers();
+
+
+
+}
+
 
 
 }
@@ -379,8 +618,6 @@ loadPlayers();
 
 </script>
 
-
-
 <footer>
 
 Создано с любовью к тюленям 🦭🍊
@@ -389,4 +626,5 @@ loadPlayers();
 
 
 </body>
+
 </html>
