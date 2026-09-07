@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,105 +10,119 @@
 <style>
 
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(#00bfff,#001f3f);
-    color:white;
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(#00bfff,#001f3f);
+color:white;
 }
+
 
 header{
-    text-align:center;
-    padding:60px 20px;
-    background:rgba(0,0,0,0.25);
+text-align:center;
+padding:60px 20px;
+background:rgba(0,0,0,0.25);
 }
+
 
 .logo{
-    font-size:100px;
-    animation:float 2s infinite alternate;
+font-size:100px;
+animation:float 2s infinite alternate;
 }
+
 
 @keyframes float{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-20px);
-    }
+from{
+transform:translateY(0);
 }
+to{
+transform:translateY(-20px);
+}
+}
+
 
 h1{
-    font-size:50px;
+font-size:50px;
 }
+
 
 section{
-    width:90%;
-    max-width:900px;
-    margin:30px auto;
-    padding:25px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
+width:90%;
+max-width:900px;
+margin:30px auto;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
 }
 
+
 h2{
-    color:#9eeaff;
-    font-size:32px;
+color:#9eeaff;
+font-size:32px;
 }
+
 
 
 .gallery{
-    display:flex;
-    justify-content:center;
+text-align:center;
 }
 
 
 .gallery img{
-    width:90%;
-    max-width:600px;
-    border-radius:25px;
-    transition:0.3s;
-    box-shadow:0 10px 25px black;
+width:90%;
+max-width:600px;
+border-radius:25px;
+box-shadow:0 10px 25px black;
+transition:.3s;
 }
 
 
 .gallery img:hover{
-    transform:scale(1.05);
+transform:scale(1.05);
 }
+
 
 
 .fact{
-    background:white;
-    color:#123;
-    margin:15px 0;
-    padding:20px;
-    border-radius:20px;
+background:white;
+color:#123;
+margin:15px 0;
+padding:20px;
+border-radius:20px;
 }
 
 
+
 button{
-    background:#00c3ff;
-    color:white;
-    border:none;
-    padding:15px 35px;
-    font-size:18px;
-    border-radius:20px;
-    cursor:pointer;
+
+background:#00c3ff;
+color:white;
+border:none;
+padding:15px 35px;
+font-size:18px;
+border-radius:20px;
+cursor:pointer;
+
 }
 
 
 button:hover{
-    background:#007bbd;
+
+background:#007bbd;
+
 }
 
 
+
 footer{
-    text-align:center;
-    padding:30px;
-    font-size:18px;
+
+text-align:center;
+padding:30px;
+
 }
 
 </style>
@@ -118,35 +133,40 @@ footer{
 <body>
 
 
+
 <header>
 
 <div class="logo">🦭</div>
 
 <h1>Seal World</h1>
 
-<p>Добро пожаловать в мир самых милых жителей океана!</p>
+<p>
+Добро пожаловать в мир тюленей!
+</p>
 
 </header>
 
 
 
+
 <section>
 
-<h2>🌊 Кто такие тюлени?</h2>
+<h2>🌊 О тюленях</h2>
 
 <p>
 Тюлени — это морские млекопитающие.
 Они отлично плавают, живут в холодных водах
-и могут долго находиться под водой.
+и имеют толстый слой жира для защиты от холода.
 </p>
 
 </section>
 
 
 
+
 <section>
 
-<h2>📸 Главный житель сайта</h2>
+<h2>📸 Главный тюлень</h2>
 
 <div class="gallery">
 
@@ -158,56 +178,76 @@ footer{
 
 
 
+
 <section>
 
 <h2>⭐ Интересные факты</h2>
 
 
 <div class="fact">
-🦭 Усы тюленей помогают им чувствовать движение воды.
+🦭 Усы тюленей помогают им находить добычу.
 </div>
 
 
 <div class="fact">
-🍊 Тюлени могут выглядеть очень мило, но они настоящие хищники.
+❄️ Тюлени могут жить в очень холодных местах.
 </div>
 
 
 <div class="fact">
-❄️ Толстый слой жира помогает им не замёрзнуть в холодном океане.
+🌊 Некоторые виды могут долго находиться под водой.
 </div>
 
 
 <div class="fact">
-🌊 Некоторые тюлени способны погружаться на большую глубину.
+💙 Тюлени — одни из самых известных морских животных.
 </div>
 
 
 </section>
+
 
 
 
 <section style="text-align:center">
 
-<h2>💙 Клуб любителей тюленей</h2>
+
+<h2>💙 Тюлений клуб</h2>
 
 <p>
-Стань частью команды Seal World!
+Присоединяйся к нашему Telegram!
 </p>
 
-<button onclick="alert('Добро пожаловать в клуб тюленей 🦭🍊')">
-Вступить
+
+<button onclick="joinClub()">
+🦭 Вступить в клуб
 </button>
+
 
 </section>
 
 
 
+
 <footer>
 
-Создано с любовью к тюленям 🦭
+Создано с любовью к тюленям 🦭🍊
 
 </footer>
+
+
+
+
+<script>
+
+function joinClub(){
+
+window.location.href="https://t.me/SealKlub";
+
+}
+
+</script>
+
 
 
 </body>
