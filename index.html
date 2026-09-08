@@ -12,7 +12,9 @@
 
 *{
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
+
 
 body{
 margin:0;
@@ -39,14 +41,25 @@ font-size:50px;
 }
 
 
+nav{
+text-align:center;
+padding:20px;
+}
+
+
 section{
+
 width:90%;
 max-width:900px;
 margin:25px auto;
 padding:25px;
-border-radius:25px;
+
 background:rgba(255,255,255,.15);
+
+border-radius:25px;
+
 backdrop-filter:blur(10px);
+
 }
 
 
@@ -58,29 +71,42 @@ color:#b8f3ff;
 button{
 
 background:#00bfff;
+
 color:white;
+
 border:0;
+
 padding:15px 30px;
+
 border-radius:20px;
+
 font-size:17px;
+
 cursor:pointer;
+
 margin:5px;
 
 }
 
 
 button:hover{
+
 background:#007db8;
+
 }
 
 
 input{
 
 padding:12px;
-border-radius:15px;
-border:0;
-margin:5px;
+
 width:80%;
+
+margin:5px;
+
+border-radius:15px;
+
+border:0;
 
 }
 
@@ -88,10 +114,14 @@ width:80%;
 .fact{
 
 background:white;
+
 color:#123;
+
 padding:18px;
+
+margin:10px 0;
+
 border-radius:20px;
-margin:12px 0;
 
 }
 
@@ -100,22 +130,37 @@ margin:12px 0;
 #playersList li{
 
 background:white;
+
 color:#123;
+
 padding:12px;
+
 margin:10px;
+
 border-radius:15px;
+
 list-style:none;
 
 }
 
 
+
 img{
 
 max-width:90%;
+
 border-radius:25px;
 
 }
 
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+}
 
 
 </style>
@@ -126,21 +171,37 @@ border-radius:25px;
 <body>
 
 
+
 <header>
 
 <div class="logo">
 🦭
 </div>
 
+
 <h1>
 Seal World
 </h1>
+
 
 <p>
 Удивительный мир тюленей 🌊
 </p>
 
+
 </header>
+
+
+
+<nav>
+
+<button onclick="goGames()">
+
+🎮 Мини-игры
+
+</button>
+
+</nav>
 
 
 
@@ -149,88 +210,65 @@ Seal World
 
 <h2>🌊 Кто такие тюлени?</h2>
 
+
 <p>
+
 Тюлени — это морские млекопитающие,
-которые проводят большую часть жизни в воде.
-Они отлично плавают, ныряют и приспособлены
-к жизни в холодных океанах.
+которые отлично приспособлены к жизни в воде.
+Они умеют плавать, нырять и выживать
+в холодных океанах.
+
 </p>
+
 
 </section>
 
 
 
 
+
 <section>
 
-<h2>⭐ Интересные факты о тюленях</h2>
+<h2>⭐ Факты о тюленях</h2>
 
 
 <div class="fact">
-🦭 <b>1. Уникальные усы</b><br>
-Усы тюленей помогают чувствовать малейшие движения воды
-и находить добычу даже в тёмной воде.
+🦭 Усы тюленей помогают чувствовать движение воды.
 </div>
 
 
 <div class="fact">
-❄️ <b>2. Защита от холода</b><br>
-Толстый слой жира помогает сохранять тепло
-в ледяной воде.
+❄️ Толстый слой жира сохраняет тепло.
 </div>
 
 
 <div class="fact">
-🌊 <b>3. Отличные пловцы</b><br>
-Тюлени могут быстро передвигаться под водой
-и преодолевать большие расстояния.
+🌊 Некоторые тюлени могут глубоко нырять.
 </div>
 
 
 <div class="fact">
-🐟 <b>4. Питание</b><br>
-Обычно тюлени едят рыбу, кальмаров
-и других морских животных.
+🐟 Тюлени питаются рыбой и морскими животными.
 </div>
 
 
 <div class="fact">
-👶 <b>5. Детёныши</b><br>
-Маленькие тюлени первое время находятся
-рядом с матерью.
+😴 Некоторые тюлени могут спать в воде.
 </div>
 
 
 <div class="fact">
-😴 <b>6. Сон</b><br>
-Некоторые тюлени могут спать как на суше,
-так и находясь в воде.
+👶 Детёныши долго находятся рядом с матерью.
 </div>
 
 
 <div class="fact">
-🌍 <b>7. Где живут</b><br>
-Тюленей можно встретить в Арктике,
-Антарктике и других холодных морях.
+🧠 Тюлени способны обучаться.
 </div>
 
 
 <div class="fact">
-🧠 <b>8. Умные животные</b><br>
-Тюлени способны обучаться и запоминать команды.
-</div>
-
-
-<div class="fact">
-🏊 <b>9. Глубокие погружения</b><br>
-Некоторые виды могут погружаться
-на большую глубину.
-</div>
-
-
-<div class="fact">
-❤️ <b>10. Важность природы</b><br>
-Тюлени играют важную роль в морской экосистеме.
+🌍 Тюлени важны для морской экосистемы.
 </div>
 
 
@@ -247,9 +285,7 @@ Seal World
 <input id="email" placeholder="Почта">
 
 
-<input id="password"
-type="password"
-placeholder="Пароль">
+<input id="password" type="password" placeholder="Пароль">
 
 
 <br>
@@ -281,17 +317,23 @@ placeholder="Пароль">
 
 
 <button onclick="addNickname()">
+
 🦭 Добавить ник
+
 </button>
 
 
 <button onclick="adminLogin()">
+
 ⚙️ Админка
+
 </button>
 
 
 <ol id="playersList">
+
 Загрузка...
+
 </ol>
 
 
@@ -383,7 +425,7 @@ document.getElementById("password").value;
 
 if(!email || !password){
 
-alert("Заполни все поля 🦭");
+alert("Заполни поля 🦭");
 
 return;
 
@@ -411,7 +453,6 @@ alert("Аккаунт создан 🦭");
 
 }
 
-
 catch(error){
 
 
@@ -422,7 +463,6 @@ alert(error.message);
 
 
 }
-
 
 
 
@@ -457,11 +497,10 @@ password
 
 
 
-alert("Вы вошли в Seal World 🦭");
+alert("Вы вошли в Seal World 🌊");
 
 
 }
-
 
 catch(error){
 
@@ -478,9 +517,7 @@ alert(error.message);
 
 
 
-
-
-// Показывает кто вошёл
+// Проверка входа
 
 onAuthStateChanged(auth,(user)=>{
 
@@ -494,7 +531,7 @@ if(user){
 
 
 status.innerHTML =
-"✅ В аккаунте: "+user.email;
+"✅ Вошёл: "+user.email;
 
 
 }else{
@@ -508,7 +545,6 @@ status.innerHTML =
 
 
 });
-
 // Добавление ника
 
 window.addNickname = async function(){
@@ -538,7 +574,9 @@ name:nickname,
 
 email:auth.currentUser 
 ? auth.currentUser.email 
-: "Гость"
+: "Гость",
+
+date:new Date().toLocaleDateString()
 
 }
 
@@ -547,7 +585,7 @@ email:auth.currentUser
 
 
 alert(
-"Ты добавлен в Seal World 🦭🏆"
+"Ты добавлен в Seal World 🏆"
 );
 
 
@@ -561,7 +599,7 @@ loadPlayers();
 
 
 
-// Загрузка участников
+// Загрузка игроков
 
 async function loadPlayers(){
 
@@ -581,11 +619,15 @@ ref(db,"players")
 
 
 
-let number = 1;
+let number=1;
 
 
 
 snapshot.forEach((player)=>{
+
+
+let data = player.val();
+
 
 
 let li =
@@ -594,18 +636,15 @@ document.createElement("li");
 
 
 li.innerHTML =
-number+". 🦭 "+player.val().name;
+number+". 🦭 "+data.name;
 
 
-
-// кнопка удаления только для администратора
 
 if(adminMode){
 
 
 let del =
 document.createElement("button");
-
 
 
 del.innerHTML =
@@ -616,14 +655,7 @@ del.innerHTML =
 del.onclick = async function(){
 
 
-let ok =
-confirm(
-"Удалить "+player.val().name+"?"
-);
-
-
-
-if(ok){
+if(confirm("Удалить "+data.name+"?")){
 
 
 await set(
@@ -669,9 +701,10 @@ number++;
 
 
 
-// Проверка администратора
 
-window.adminLogin = function(){
+// Админка
+
+window.adminLogin=function(){
 
 
 let user = auth.currentUser;
@@ -692,15 +725,14 @@ return;
 
 
 
-
 if(user.email === "krotkov2701@gmail.com"){
 
 
-adminMode = true;
+adminMode=true;
 
 
 alert(
-"Админ режим включён ⚙️🦭"
+"⚙️ Админ режим включён"
 );
 
 
@@ -713,7 +745,7 @@ loadPlayers();
 
 
 alert(
-"Нет доступа ❌"
+"❌ У вас нет доступа"
 );
 
 
@@ -726,27 +758,86 @@ alert(
 
 
 
-// Загружаем список при открытии
-
 loadPlayers();
-</script>
+
+<section id="games">
+
+
+<h2>🎮 Мини-игры</h2>
+
+
+<h3>🦭 Поймай рыбку!</h3>
+
+
+<p>
+Помоги тюленю поймать как можно больше рыб 🐟
+</p>
+
+
+
+<h2>
+Счёт: <span id="score">0</span> 🏆
+</h2>
+
+
+
+<div id="gameArea"
+
+style="
+height:300px;
+background:#0077aa;
+border-radius:25px;
+position:relative;
+overflow:hidden;
+">
+
+
+<button id="fish"
+
+onclick="catchFish()"
+
+style="
+position:absolute;
+font-size:35px;
+border-radius:50%;
+background:#ffd000;
+padding:10px;
+">
+
+🐟
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
 
 
 <section>
 
+
 <h2>📸 Галерея тюленей</h2>
 
 
-<img src="seal1.jpg" alt="Тюлень">
+<img src="seal1.jpg">
 
 
 <p>
-Добро пожаловать в галерею Seal World 🦭🌊
-Здесь собраны самые интересные моменты из жизни тюленей.
+
+Красивые фотографии тюленей
+и интересные моменты из жизни океана 🌊
+
 </p>
 
 
 </section>
+
 
 
 
@@ -758,18 +849,21 @@ loadPlayers();
 
 
 <p>
-Если тебе нравится наш клуб — можешь помочь развитию проекта 🦭
+
+Спасибо всем, кто помогает развитию клуба 🦭
+
 </p>
 
 
 <button onclick="donate()">
 
-💙 Сделать донат
+💙 Донат
 
 </button>
 
 
 </section>
+
 
 
 
@@ -782,7 +876,7 @@ loadPlayers();
 
 <button onclick="telegram()">
 
-🦭 Вступить в клуб
+🦭 Вступить
 
 </button>
 
@@ -792,16 +886,99 @@ loadPlayers();
 
 
 
+
+
 <footer>
 
-Создано с любовью к тюленям 🦭🍊
+Seal World 🦭 | Сделано с любовью к тюленям
 
 </footer>
 
 
 
 
+
 <script>
+
+
+function goGames(){
+
+document
+.getElementById("games")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+
+
+let score = 0;
+
+
+
+function moveFish(){
+
+
+let fish =
+document.getElementById("fish");
+
+
+let area =
+document.getElementById("gameArea");
+
+
+
+let x =
+Math.random() *
+(area.clientWidth-60);
+
+
+let y =
+Math.random() *
+(area.clientHeight-60);
+
+
+
+fish.style.left=x+"px";
+
+fish.style.top=y+"px";
+
+
+}
+
+
+
+
+
+function catchFish(){
+
+
+score++;
+
+
+document.getElementById("score").innerHTML =
+score;
+
+
+moveFish();
+
+
+}
+
+
+
+
+
+setInterval(moveFish,1500);
+
+
+moveFish();
+
+
+
+
 
 
 function donate(){
@@ -812,6 +989,8 @@ window.location.href =
 
 
 }
+
+
 
 
 
@@ -826,6 +1005,8 @@ window.location.href =
 
 
 </script>
+
+
 
 
 
