@@ -8,197 +8,117 @@
 
 <title>Seal World 🦭</title>
 
-
 <style>
 
 *{
 box-sizing:border-box;
 }
 
-
 body{
-
 margin:0;
 font-family:Arial,sans-serif;
-background:linear-gradient(#00bfff,#001f3f);
+background:linear-gradient(#00c6ff,#003b70);
 color:white;
-
 }
-
 
 
 header{
-
 text-align:center;
-padding:60px 20px;
-background:rgba(0,0,0,.3);
-
+padding:50px 20px;
+background:rgba(0,0,0,.25);
 }
-
 
 
 .logo{
-
-font-size:100px;
-animation:float 2s infinite alternate;
-
+font-size:90px;
 }
-
-
-
-@keyframes float{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(-20px);
-}
-
-}
-
 
 
 h1{
-
 font-size:50px;
-
 }
-
 
 
 section{
-
 width:90%;
 max-width:900px;
-margin:30px auto;
+margin:25px auto;
 padding:25px;
-
-background:rgba(255,255,255,.15);
-
 border-radius:25px;
-
+background:rgba(255,255,255,.15);
 backdrop-filter:blur(10px);
-
 }
-
 
 
 h2{
-
-color:#9eeaff;
-
+color:#b5f3ff;
 }
-
 
 
 button{
 
-background:#00c3ff;
+background:#00bfff;
 color:white;
-
 border:0;
-
-padding:15px 30px;
-
+padding:14px 25px;
 border-radius:20px;
-
-font-size:18px;
-
 cursor:pointer;
-
+font-size:17px;
 margin:5px;
 
 }
 
 
-
 button:hover{
-
-background:#007bbd;
-
+background:#008ccc;
 }
 
 
+input{
 
-.gallery{
-
-text-align:center;
-
-}
-
-
-
-.gallery img{
-
-width:90%;
-
-max-width:600px;
-
-border-radius:25px;
-
-box-shadow:0 10px 25px black;
+padding:12px;
+border-radius:15px;
+border:0;
+margin:5px;
+width:80%;
 
 }
-
 
 
 .fact{
 
 background:white;
-
 color:#123;
-
-padding:20px;
-
-margin:15px 0;
-
-border-radius:20px;
+padding:15px;
+border-radius:15px;
+margin:10px 0;
 
 }
-
 
 
 #playersList li{
 
 background:white;
-
 color:#123;
-
 padding:12px;
-
 margin:10px;
-
 border-radius:15px;
-
 list-style:none;
 
 }
 
 
+img{
 
-.admin{
-
-text-align:center;
-
-}
-
-
-
-footer{
-
-text-align:center;
-
-padding:30px;
+max-width:90%;
+border-radius:20px;
 
 }
+
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -210,7 +130,9 @@ padding:30px;
 
 <h1>Seal World</h1>
 
-<p>Мир самых милых жителей океана 🌊</p>
+<p>
+Добро пожаловать в мир тюленей 🌊
+</p>
 
 </header>
 
@@ -222,26 +144,9 @@ padding:30px;
 <h2>🌊 О тюленях</h2>
 
 <p>
-
-Тюлени — морские млекопитающие.
-Они отлично плавают и могут жить в холодных водах.
-
+Тюлени — морские млекопитающие, которые отлично приспособлены
+к жизни в воде. Они умеют плавать, нырять и жить в холодных океанах.
 </p>
-
-</section>
-
-
-
-
-<section>
-
-<h2>📸 Главный тюлень</h2>
-
-<div class="gallery">
-
-<img src="seal1.jpg" alt="Тюлень">
-
-</div>
 
 </section>
 
@@ -254,23 +159,22 @@ padding:30px;
 
 
 <div class="fact">
-
-🦭 Усы тюленей помогают чувствовать движение воды.
-
+🦭 Усы помогают тюленям чувствовать движение воды.
 </div>
 
 
 <div class="fact">
-
-❄️ Толстый слой жира защищает от холода.
-
+❄️ Жировой слой защищает их от холода.
 </div>
 
 
 <div class="fact">
-
 🌊 Некоторые тюлени могут долго находиться под водой.
+</div>
 
+
+<div class="fact">
+🐟 Тюлени питаются рыбой и морскими животными.
 </div>
 
 
@@ -279,44 +183,54 @@ padding:30px;
 
 
 
-<section style="text-align:center">
+<section>
+
+<h2>📧 Аккаунт Seal World</h2>
 
 
-<h2>💙 Telegram клуб</h2>
+<input id="email" placeholder="Почта">
 
 
-<button onclick="telegram()">
-
-🦭 Вступить
-
-</button>
-
-
-</section>
-
-
-
-
-<section style="text-align:center">
-
-
-<h2>🏆 Таблица участников</h2>
-
-
-<button onclick="joinTable()">
-
-🦭 Добавить свой ник
-
-</button>
+<input id="password" 
+type="password"
+placeholder="Пароль">
 
 
 <br>
 
 
+<button onclick="register()">
+📝 Создать аккаунт
+</button>
+
+
+<button onclick="login()">
+🔑 Войти
+</button>
+
+
+<p id="status">
+Вы не вошли
+</p>
+
+
+</section>
+
+
+
+
+<section>
+
+<h2>🏆 Таблица участников</h2>
+
+
+<button onclick="addNickname()">
+🦭 Добавить ник
+</button>
+
+
 <button onclick="adminLogin()">
-
 ⚙️ Администрация
-
 </button>
 
 
@@ -328,23 +242,23 @@ padding:30px;
 
 
 </section>
-<script>
+<script type="module">
 
-function telegram(){
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-window.location.href="https://t.me/SealKlub";
+
+import {
+
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+onAuthStateChanged
 
 }
 
-</script>
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-
-
-<script type="module">
-
-
-import { initializeApp } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
@@ -357,6 +271,7 @@ get
 }
 
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
 
 
 
@@ -380,7 +295,6 @@ appId: "1:164301169854:web:b757d8bcffe0e2892f6aef",
 
 measurementId: "G-QHSBB1W56Y"
 
-
 };
 
 
@@ -388,17 +302,145 @@ measurementId: "G-QHSBB1W56Y"
 const app = initializeApp(firebaseConfig);
 
 
+const auth = getAuth(app);
+
+
 const db = getDatabase(app);
 
 
 
-let adminMode=false;
+let adminMode = false;
 
 
 
 
 
-window.joinTable = async function(){
+// создание аккаунта
+
+window.register = async function(){
+
+
+let email =
+document.getElementById("email").value;
+
+
+let password =
+document.getElementById("password").value;
+
+
+
+try{
+
+
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+
+
+alert("Аккаунт создан 🦭");
+
+
+}
+
+
+catch(error){
+
+
+alert(error.message);
+
+
+}
+
+
+}
+
+
+
+
+
+
+// вход
+
+window.login = async function(){
+
+
+let email =
+document.getElementById("email").value;
+
+
+let password =
+document.getElementById("password").value;
+
+
+
+try{
+
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+
+
+alert("Вы вошли 🦭");
+
+
+}
+
+
+catch(error){
+
+
+alert(error.message);
+
+
+}
+
+
+}
+
+
+
+
+
+
+// статус пользователя
+
+onAuthStateChanged(auth,(user)=>{
+
+
+let status =
+document.getElementById("status");
+
+
+
+if(user){
+
+
+status.innerHTML =
+"✅ Вход: "+user.email;
+
+
+}else{
+
+
+status.innerHTML =
+"❌ Вы не вошли";
+
+
+}
+
+
+});
+
+// Добавить ник в таблицу
+
+window.addNickname = async function(){
 
 
 let nickname = prompt(
@@ -407,7 +449,11 @@ let nickname = prompt(
 
 
 
-if(nickname && nickname.trim()!=""){
+if(!nickname || nickname.trim()==""){
+
+return;
+
+}
 
 
 
@@ -417,7 +463,9 @@ ref(db,"players/"+nickname),
 
 {
 
-name:nickname
+name:nickname,
+
+email:auth.currentUser ? auth.currentUser.email : "Гость"
 
 }
 
@@ -426,7 +474,7 @@ name:nickname
 
 
 alert(
-"Ты добавлен в таблицу 🦭🏆"
+"Ты добавлен в таблицу 🏆"
 );
 
 
@@ -438,17 +486,97 @@ loadPlayers();
 
 
 
+
+
+// Загрузка игроков
+
+async function loadPlayers(){
+
+
+let list =
+document.getElementById("playersList");
+
+
+
+list.innerHTML="";
+
+
+
+let snapshot =
+await get(ref(db,"players"));
+
+
+
+let number=1;
+
+
+
+snapshot.forEach((player)=>{
+
+
+let li =
+document.createElement("li");
+
+
+
+li.innerHTML =
+number+". 🦭 "+player.val().name;
+
+
+
+if(adminMode){
+
+
+let del =
+document.createElement("button");
+
+
+del.innerHTML =
+"❌ Удалить";
+
+
+
+del.onclick = function(){
+
+
+deletePlayer(player.key);
+
+
+};
+
+
+
+li.appendChild(del);
+
+
+}
+
+
+
+list.appendChild(li);
+
+
+
+number++;
+
+
+
+});
+
+
 }
 
 
 
 
 
+// Вход в админку
 
 window.adminLogin=function(){
 
 
-let password = prompt(
+let password =
+prompt(
 "Введите пароль администратора"
 );
 
@@ -488,99 +616,19 @@ alert(
 
 
 
-async function loadPlayers(){
-
-
-let list=document.getElementById(
-"playersList"
-);
-
-
-
-list.innerHTML="";
-
-
-
-let snapshot = await get(
-ref(db,"players")
-);
-
-
-
-let number=1;
-
-
-
-snapshot.forEach((player)=>{
-
-
-let li=document.createElement("li");
-
-
-
-li.innerHTML =
-number+". 🦭 "+player.val().name;
-
-
-
-if(adminMode){
-
-
-
-let del=document.createElement("button");
-
-
-del.innerHTML="❌ Удалить";
-
-
-del.onclick=function(){
-
-
-deletePlayer(player.key);
-
-
-};
-
-
-
-li.appendChild(del);
-
-
-}
-
-
-
-list.appendChild(li);
-
-
-number++;
-
-
-});
-
-
-
-}
-
-
-
-
-
+// Удаление игрока
 
 async function deletePlayer(name){
 
 
-
-let confirmDelete = confirm(
-
+let answer =
+confirm(
 "Удалить "+name+"?"
-
 );
 
 
 
-if(confirmDelete){
-
+if(answer){
 
 
 await set(
@@ -602,9 +650,7 @@ alert(
 loadPlayers();
 
 
-
 }
-
 
 
 }
@@ -613,16 +659,63 @@ loadPlayers();
 
 
 loadPlayers();
-
-
-
 </script>
+
+
+<section>
+
+<h2>📸 Галерея тюленей</h2>
+
+<img src="seal1.jpg" alt="Тюлень">
+
+
+<p>
+Каждый тюлень уникален. Они живут в океанах,
+исследуют моря и являются важной частью природы 🌊
+</p>
+
+</section>
+
+
+
+<section style="text-align:center">
+
+<h2>💙 Тюлений клуб</h2>
+
+<p>
+Присоединяйся к нашему сообществу!
+</p>
+
+
+<button onclick="telegram()">
+
+🦭 Telegram
+
+</button>
+
+
+</section>
+
+
 
 <footer>
 
 Создано с любовью к тюленям 🦭🍊
 
 </footer>
+
+
+
+<script>
+
+function telegram(){
+
+window.location.href=
+"https://t.me/SealKlub";
+
+}
+
+</script>
 
 
 </body>
