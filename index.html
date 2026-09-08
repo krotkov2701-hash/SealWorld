@@ -15,7 +15,6 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
-
 body{
 margin:0;
 font-family:Arial,sans-serif;
@@ -23,182 +22,104 @@ background:linear-gradient(#00c6ff,#003b70);
 color:white;
 }
 
-
 header{
 text-align:center;
 padding:60px 20px;
 background:rgba(0,0,0,.3);
 }
 
-
 .logo{
 font-size:100px;
 }
 
-
 h1{
 font-size:50px;
 }
-
 
 nav{
 text-align:center;
 padding:20px;
 }
 
-
 section{
-
 width:90%;
 max-width:900px;
 margin:25px auto;
 padding:25px;
-
 background:rgba(255,255,255,.15);
-
 border-radius:25px;
-
 backdrop-filter:blur(10px);
-
 }
-
 
 h2{
 color:#b8f3ff;
 }
 
-
 button{
-
 background:#00bfff;
-
 color:white;
-
 border:0;
-
 padding:15px 30px;
-
 border-radius:20px;
-
 font-size:17px;
-
 cursor:pointer;
-
 margin:5px;
-
 }
-
 
 button:hover{
-
 background:#007db8;
-
 }
-
 
 input{
-
 padding:12px;
-
 width:80%;
-
 margin:5px;
-
 border-radius:15px;
-
 border:0;
-
 }
-
-
 
 .fact{
-
 background:white;
-
 color:#123;
-
 padding:18px;
-
 margin:10px 0;
-
 border-radius:20px;
-
 }
-
-
 
 #leaderboard li{
-
 background:white;
-
 color:#123;
-
 padding:12px;
-
 margin:10px;
-
 border-radius:15px;
-
 list-style:none;
-
 }
-
-
-
-img{
-
-max-width:90%;
-
-border-radius:25px;
-
-}
-
-
-
-footer{
-
-text-align:center;
-
-padding:30px;
-
-}
-
-
-
-/* ИГРА */
 
 #gameArea{
-
 height:300px;
-
 background:#0077aa;
-
 border-radius:25px;
-
 position:relative;
-
 overflow:hidden;
-
 }
-
-
 
 #fish{
-
 position:absolute;
-
 font-size:35px;
-
 background:#ffd000;
-
-border-radius:50%;
-
 padding:10px;
-
+border-radius:50%;
 }
 
+img{
+max-width:90%;
+border-radius:25px;
+}
 
+footer{
+text-align:center;
+padding:30px;
+}
 
 </style>
 
@@ -214,16 +135,13 @@ padding:10px;
 🦭
 </div>
 
-
 <h1>
 Seal World
 </h1>
 
-
 <p>
 Удивительный мир тюленей 🌊
 </p>
-
 
 </header>
 
@@ -232,12 +150,11 @@ Seal World
 <nav>
 
 <button onclick="goGames()">
-
 🎮 Мини-игры
-
 </button>
 
 </nav>
+
 
 
 
@@ -245,18 +162,15 @@ Seal World
 
 <h2>🌊 Кто такие тюлени?</h2>
 
-
 <p>
-
-Тюлени — морские млекопитающие,
+Тюлени — это морские млекопитающие,
 которые отлично приспособлены к жизни в воде.
 Они умеют плавать, нырять и выживать
 в холодных океанах.
-
 </p>
 
-
 </section>
+
 
 
 
@@ -264,46 +178,25 @@ Seal World
 
 <h2>⭐ Факты о тюленях</h2>
 
-
 <div class="fact">
 🦭 Усы тюленей помогают чувствовать движение воды.
 </div>
-
 
 <div class="fact">
 ❄️ Жир помогает сохранять тепло.
 </div>
 
-
 <div class="fact">
 🌊 Тюлени могут глубоко нырять.
 </div>
 
-
 <div class="fact">
-🐟 Они питаются рыбой.
+🐟 Тюлени питаются рыбой.
 </div>
 
-
 <div class="fact">
-😴 Некоторые спят в воде.
+😴 Некоторые тюлени спят в воде.
 </div>
-
-
-<div class="fact">
-👶 Детёныши живут рядом с матерью.
-</div>
-
-
-<div class="fact">
-🧠 Тюлени способны обучаться.
-</div>
-
-
-<div class="fact">
-🌍 Они важны для океана.
-</div>
-
 
 </section>
 <section>
@@ -338,6 +231,8 @@ Seal World
 
 
 
+
+
 <section>
 
 <h2>🏆 Рыбный лидерборд</h2>
@@ -354,11 +249,61 @@ Seal World
 
 
 
+
+
+<section id="games">
+
+<h2>🎮 Мини-игра</h2>
+
+
+<h3>
+🦭 Поймай рыбку!
+</h3>
+
+
+<h2>
+🐟 Счёт:
+<span id="score">0</span>
+</h2>
+
+
+<div id="gameArea">
+
+
+<button id="fish" onclick="catchFish()">
+
+🐟
+
+</button>
+
+
+</div>
+
+
+<br>
+
+
+<button onclick="stopRecord()">
+
+⛔ Прекратить рекорд
+
+</button>
+
+
+</section>
+
+
+
+
+
+
 <script type="module">
 
 
 import { initializeApp }
+
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 
 import {
@@ -378,7 +323,6 @@ import {
 
 getDatabase,
 ref,
-set,
 get,
 push
 
@@ -390,32 +334,22 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 
-const firebaseConfig = {
 
+const firebaseConfig = {
 
 apiKey: "AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
 
-
 authDomain: "sealworld-c7969.firebaseapp.com",
-
 
 databaseURL: "https://sealworld-c7969-default-rtdb.firebaseio.com",
 
-
 projectId: "sealworld-c7969",
-
 
 storageBucket: "sealworld-c7969.firebasestorage.app",
 
-
 messagingSenderId: "164301169854",
 
-
-appId: "1:164301169854:web:b757d8bcffe0e2892f6aef",
-
-
-measurementId: "G-QHSBB1W56Y"
-
+appId: "1:164301169854:web:b757d8bcffe0e2892f6aef"
 
 };
 
@@ -433,8 +367,6 @@ const db = getDatabase(app);
 
 
 
-
-// СОЗДАНИЕ АККАУНТА
 
 
 window.register = async function(){
@@ -463,29 +395,20 @@ try{
 
 
 await createUserWithEmailAndPassword(
-
 auth,
-
 email,
-
 password
-
 );
 
 
-
-alert(
-"Аккаунт создан 🦭"
-);
-
+alert("Аккаунт создан 🦭");
 
 
 }
 
+catch(e){
 
-catch(error){
-
-alert(error.message);
+alert(e.message);
 
 }
 
@@ -496,7 +419,6 @@ alert(error.message);
 
 
 
-// ВХОД
 
 
 window.login = async function(){
@@ -515,31 +437,200 @@ try{
 
 
 await signInWithEmailAndPassword(
-
 auth,
-
 email,
-
 password
+);
+
+
+alert("Вы вошли 🌊");
+
+
+}
+
+catch(e){
+
+alert(e.message);
+
+}
+
+
+}
+
+
+
+
+
+
+
+onAuthStateChanged(auth,(user)=>{
+
+
+document.getElementById("status").innerHTML =
+
+user
+
+?
+
+"✅ Вошёл: "+user.email
+
+:
+
+"❌ Вы не вошли";
+
+
+});
+let score = 0;
+
+let gameRunning = true;
+
+
+
+function goGames(){
+
+document
+.getElementById("games")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+
+
+function moveFish(){
+
+
+if(!gameRunning) return;
+
+
+
+let fish =
+document.getElementById("fish");
+
+
+let area =
+document.getElementById("gameArea");
+
+
+
+let x =
+Math.random() * 
+(area.clientWidth-70);
+
+
+
+let y =
+Math.random() *
+(area.clientHeight-70);
+
+
+
+fish.style.left =
+x+"px";
+
+
+fish.style.top =
+y+"px";
+
+
+}
+
+
+
+
+window.catchFish=function(){
+
+
+if(!gameRunning) return;
+
+
+
+score++;
+
+
+document.getElementById("score").innerHTML =
+score;
+
+
+moveFish();
+
+
+}
+
+
+
+
+
+setInterval(
+moveFish,
+1500
+);
+
+
+
+moveFish();
+
+
+
+
+
+
+
+window.stopRecord = async function(){
+
+
+if(!gameRunning)
+return;
+
+
+
+gameRunning=false;
+
+
+
+let name =
+prompt(
+"Введите свой никнейм 🦭"
+);
+
+
+
+if(!name || name.trim()==""){
+
+return;
+
+}
+
+
+
+
+await push(
+
+ref(db,"leaderboard"),
+
+{
+
+name:name,
+
+score:score
+
+}
 
 );
 
 
 
 alert(
-"Вы вошли в Seal World 🌊"
+
+"🎉 Рекорд сохранён!\n🐟 Рыб: "+score
+
 );
 
 
 
-}
-
-
-catch(error){
-
-alert(error.message);
-
-}
+loadLeaderboard();
 
 
 }
@@ -548,43 +639,6 @@ alert(error.message);
 
 
 
-
-// ПРОВЕРКА ПОЛЬЗОВАТЕЛЯ
-
-
-onAuthStateChanged(auth,(user)=>{
-
-
-let status =
-document.getElementById("status");
-
-
-
-if(user){
-
-
-status.innerHTML =
-"✅ Вошёл: "+user.email;
-
-
-
-}else{
-
-
-status.innerHTML =
-"❌ Вы не вошли";
-
-
-}
-
-
-});
-
-
-
-
-
-// ЗАГРУЗКА ЛИДЕРБОРДА
 
 
 window.loadLeaderboard = async function(){
@@ -592,12 +646,6 @@ window.loadLeaderboard = async function(){
 
 let list =
 document.getElementById("leaderboard");
-
-
-
-list.innerHTML =
-"Загрузка...";
-
 
 
 let snapshot =
@@ -636,17 +684,6 @@ list.innerHTML="";
 
 
 
-if(players.length===0){
-
-list.innerHTML =
-"Пока рекордов нет 🐟";
-
-return;
-
-}
-
-
-
 players.forEach((player,index)=>{
 
 
@@ -654,11 +691,9 @@ let li =
 document.createElement("li");
 
 
-
 li.innerHTML =
 
-(index+1)+
-". 🦭 "+
+(index+1)+". 🦭 "+
 player.name+
 " — 🐟 "+
 player.score;
@@ -668,243 +703,10 @@ player.score;
 list.appendChild(li);
 
 
-
 });
 
 
 }
-<section id="games">
-
-<h2>🎮 Мини-игра</h2>
-
-
-<h3>
-🦭 Поймай рыбку!
-</h3>
-
-
-<p>
-Нажимай на рыбку и набирай рекорд 🐟
-</p>
-
-
-
-<h2>
-Счёт:
-<span id="score">0</span>
-🐟
-</h2>
-
-
-
-
-<div id="gameArea">
-
-
-<button id="fish" onclick="catchFish()">
-
-🐟
-
-</button>
-
-
-</div>
-
-
-
-<br>
-
-
-<button onclick="stopRecord()">
-
-⛔ Прекратить рекорд
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-<script>
-
-
-let score = 0;
-
-let gameRunning = true;
-
-
-
-
-function goGames(){
-
-
-document
-.getElementById("games")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-
-}
-
-
-
-
-
-function moveFish(){
-
-
-if(!gameRunning)
-return;
-
-
-
-let fish =
-document.getElementById("fish");
-
-
-
-let area =
-document.getElementById("gameArea");
-
-
-
-let x =
-Math.random() *
-(area.clientWidth-70);
-
-
-
-let y =
-Math.random() *
-(area.clientHeight-70);
-
-
-
-fish.style.left =
-x+"px";
-
-
-
-fish.style.top =
-y+"px";
-
-
-}
-
-
-
-
-
-function catchFish(){
-
-
-if(!gameRunning)
-return;
-
-
-
-score++;
-
-
-document
-.getElementById("score")
-.innerHTML =
-score;
-
-
-
-moveFish();
-
-
-}
-
-
-
-
-
-setInterval(
-moveFish,
-1500
-);
-
-
-
-
-moveFish();
-
-
-
-
-
-// ОСТАНОВКА РЕКОРДА
-
-
-async function stopRecord(){
-
-
-if(!gameRunning)
-return;
-
-
-
-gameRunning=false;
-
-
-
-let name =
-prompt(
-"Введите свой никнейм 🦭"
-);
-
-
-
-if(!name || name.trim()==""){
-
-alert(
-"Имя не введено"
-);
-
-return;
-
-}
-
-
-
-
-await push(
-
-ref(db,"leaderboard"),
-
-{
-
-name:name,
-
-score:score,
-
-date:
-new Date().toLocaleDateString()
-
-}
-
-);
-
-
-
-
-alert(
-
-"🎉 Рекорд сохранён!\n"+
-"🐟 Рыб поймано: "+
-score
-
-);
 
 
 
@@ -913,23 +715,14 @@ loadLeaderboard();
 
 
 
-}
-
-
-
-
-
-window.catchFish =
-catchFish;
-
-
-window.stopRecord =
-stopRecord;
-
-
-
 </script>
+
+
+
+
+
 <section>
+
 
 <h2>📸 Галерея тюленей</h2>
 
@@ -938,10 +731,7 @@ stopRecord;
 
 
 <p>
-
-Красивые фотографии тюленей
-и интересные моменты из жизни океана 🌊
-
+Красивые фотографии тюленей 🌊
 </p>
 
 
@@ -957,17 +747,8 @@ stopRecord;
 <h2>💰 Поддержать Seal World</h2>
 
 
-<p>
-
-Спасибо всем, кто помогает развитию сайта 🦭
-
-</p>
-
-
 <button onclick="donate()">
-
 💙 Донат
-
 </button>
 
 
@@ -984,14 +765,11 @@ stopRecord;
 
 
 <button onclick="telegram()">
-
 🦭 Вступить
-
 </button>
 
 
 </section>
-
 
 
 
@@ -1012,46 +790,22 @@ Seal World 🦭 | Сделано с любовью к тюленям
 
 function donate(){
 
-
 window.location.href =
-
 "https://www.tbank.ru/rm/r_zEQLNzpFyK.XHCffLIsXV/0vMUS97784";
 
-
 }
-
 
 
 
 function telegram(){
 
-
 window.location.href =
-
 "https://t.me/SealKlub";
 
-
 }
-
-
-
-// загрузка лидерборда при открытии сайта
-
-setTimeout(()=>{
-
-if(window.loadLeaderboard){
-
-loadLeaderboard();
-
-}
-
-},1000);
-
 
 
 </script>
-
-
 
 
 
