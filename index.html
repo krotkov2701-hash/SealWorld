@@ -15,111 +15,225 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
+
 body{
+
 margin:0;
+
 font-family:Arial,sans-serif;
+
 background:linear-gradient(#00c6ff,#003b70);
+
 color:white;
+
 }
+
+
 
 header{
+
 text-align:center;
+
 padding:60px 20px;
+
 background:rgba(0,0,0,.3);
+
 }
+
+
 
 .logo{
+
 font-size:100px;
+
 }
+
+
 
 h1{
+
 font-size:50px;
+
 }
+
+
 
 nav{
+
 text-align:center;
+
 padding:20px;
+
 }
+
+
 
 section{
+
 width:90%;
+
 max-width:900px;
+
 margin:25px auto;
+
 padding:25px;
+
 background:rgba(255,255,255,.15);
+
 border-radius:25px;
+
 backdrop-filter:blur(10px);
+
 }
+
+
 
 h2{
+
 color:#b8f3ff;
+
 }
+
+
 
 button{
+
 background:#00bfff;
+
 color:white;
+
 border:0;
+
 padding:15px 30px;
+
 border-radius:20px;
+
 font-size:17px;
+
 cursor:pointer;
+
 margin:5px;
+
 }
+
+
 
 button:hover{
+
 background:#007db8;
+
 }
+
+
 
 input{
+
 padding:12px;
+
 width:80%;
+
 margin:5px;
+
 border-radius:15px;
+
 border:0;
+
 }
+
+
 
 .fact{
+
 background:white;
+
 color:#123;
+
 padding:18px;
+
 margin:10px 0;
+
 border-radius:20px;
+
 }
+
+
 
 #leaderboard li{
+
 background:white;
+
 color:#123;
+
 padding:12px;
+
 margin:10px;
+
 border-radius:15px;
+
 list-style:none;
+
 }
+
+
 
 #gameArea{
+
 height:300px;
+
 background:#0077aa;
+
 border-radius:25px;
+
 position:relative;
+
 overflow:hidden;
+
 }
+
+
 
 #fish{
+
 position:absolute;
+
 font-size:35px;
+
 background:#ffd000;
-padding:10px;
+
 border-radius:50%;
+
+padding:10px;
+
 }
+
+
+
+#adminPanel{
+
+display:none;
+
+}
+
+
 
 img{
+
 max-width:90%;
+
 border-radius:25px;
+
 }
 
+
+
 footer{
+
 text-align:center;
+
 padding:30px;
+
 }
+
 
 </style>
 
@@ -131,17 +245,27 @@ padding:30px;
 
 <header>
 
+
 <div class="logo">
+
 🦭
+
 </div>
 
+
 <h1>
+
 Seal World
+
 </h1>
 
+
 <p>
+
 Удивительный мир тюленей 🌊
+
 </p>
+
 
 </header>
 
@@ -149,9 +273,13 @@ Seal World
 
 <nav>
 
+
 <button onclick="goGames()">
+
 🎮 Мини-игры
+
 </button>
+
 
 </nav>
 
@@ -160,43 +288,59 @@ Seal World
 
 <section>
 
-<h2>🌊 Кто такие тюлени?</h2>
+
+<h2>
+🌊 Кто такие тюлени?
+</h2>
+
 
 <p>
-Тюлени — это морские млекопитающие,
-которые отлично приспособлены к жизни в воде.
-Они умеют плавать, нырять и выживать
+
+Тюлени — морские млекопитающие.
+Они отлично плавают, ныряют и живут
 в холодных океанах.
+
 </p>
+
 
 </section>
 
 
 
 
+
 <section>
 
-<h2>⭐ Факты о тюленях</h2>
+
+<h2>
+⭐ Факты о тюленях
+</h2>
+
 
 <div class="fact">
-🦭 Усы тюленей помогают чувствовать движение воды.
+🦭 Усы помогают чувствовать движение воды.
 </div>
 
-<div class="fact">
-❄️ Жир помогает сохранять тепло.
-</div>
 
 <div class="fact">
-🌊 Тюлени могут глубоко нырять.
+❄️ Жир сохраняет тепло.
 </div>
 
-<div class="fact">
-🐟 Тюлени питаются рыбой.
-</div>
 
 <div class="fact">
-😴 Некоторые тюлени спят в воде.
+🌊 Некоторые тюлени ныряют очень глубоко.
 </div>
+
+
+<div class="fact">
+🐟 Тюлени любят рыбу.
+</div>
+
+
+<div class="fact">
+😴 Некоторые могут спать в воде.
+</div>
+
 
 </section>
 <section>
@@ -206,6 +350,7 @@ Seal World
 
 <input id="email" placeholder="Почта">
 
+
 <input id="password" type="password" placeholder="Пароль">
 
 
@@ -213,17 +358,23 @@ Seal World
 
 
 <button onclick="register()">
+
 📝 Создать аккаунт
+
 </button>
 
 
 <button onclick="login()">
+
 🔑 Войти
+
 </button>
 
 
 <p id="status">
+
 Вы не вошли
+
 </p>
 
 
@@ -251,43 +402,19 @@ Seal World
 
 
 
-<section id="games">
+<section id="adminPanel">
 
-<h2>🎮 Мини-игра</h2>
-
-
-<h3>
-🦭 Поймай рыбку!
-</h3>
+<h2>⚙️ Админка</h2>
 
 
-<h2>
-🐟 Счёт:
-<span id="score">0</span>
-</h2>
+<button onclick="clearLeaderboard()">
 
-
-<div id="gameArea">
-
-
-<button id="fish" onclick="catchFish()">
-
-🐟
+🗑️ Очистить лидерборд
 
 </button>
 
 
-</div>
-
-
-<br>
-
-
-<button onclick="stopRecord()">
-
-⛔ Прекратить рекорд
-
-</button>
+<ol id="adminList"></ol>
 
 
 </section>
@@ -296,11 +423,10 @@ Seal World
 
 
 
-
 <script type="module">
 
 
-import { initializeApp }
+import {initializeApp}
 
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
@@ -309,8 +435,11 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
 
 getAuth,
+
 createUserWithEmailAndPassword,
+
 signInWithEmailAndPassword,
+
 onAuthStateChanged
 
 }
@@ -322,9 +451,14 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
 
 getDatabase,
+
 ref,
+
 get,
-push
+
+set,
+
+remove
 
 }
 
@@ -337,43 +471,124 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const firebaseConfig = {
 
-apiKey: "AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
 
-authDomain: "sealworld-c7969.firebaseapp.com",
+apiKey:"AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
 
-databaseURL: "https://sealworld-c7969-default-rtdb.firebaseio.com",
+authDomain:"sealworld-c7969.firebaseapp.com",
 
-projectId: "sealworld-c7969",
+databaseURL:"https://sealworld-c7969-default-rtdb.firebaseio.com",
 
-storageBucket: "sealworld-c7969.firebasestorage.app",
+projectId:"sealworld-c7969",
 
-messagingSenderId: "164301169854",
+storageBucket:"sealworld-c7969.firebasestorage.app",
 
-appId: "1:164301169854:web:b757d8bcffe0e2892f6aef"
+messagingSenderId:"164301169854",
+
+appId:"1:164301169854:web:b757d8bcffe0e2892f6aef"
 
 };
 
 
 
 
-const app = initializeApp(firebaseConfig);
-
-
-const auth = getAuth(app);
-
-
-const db = getDatabase(app);
+const app =
+initializeApp(firebaseConfig);
 
 
 
+const auth =
+getAuth(app);
 
 
 
-window.register = async function(){
+const db =
+getDatabase(app);
+
+
+
+
+
+
+const badWords=[
+
+
+"хуй",
+
+"хуи",
+
+"пизд",
+
+"еб",
+
+"бля",
+
+"сука",
+
+"долбоеб",
+
+"мудак",
+
+
+"fuck",
+
+"shit",
+
+"bitch",
+
+
+"нацист",
+
+"нацизм",
+
+"фашист",
+
+"фашизм",
+
+"гитлер",
+
+"hitler",
+
+"свастика",
+
+"heil",
+
+"расизм"
+
+];
+
+
+
+
+
+
+function hasBadWords(text){
+
+
+let t =
+text.toLowerCase();
+
+
+
+return badWords.some(word=>
+
+t.includes(word)
+
+);
+
+
+}
+
+
+
+
+
+
+window.register=async function(){
 
 
 let email =
 document.getElementById("email").value;
+
 
 
 let password =
@@ -381,30 +596,26 @@ document.getElementById("password").value;
 
 
 
-if(!email || !password){
-
-alert("Заполни поля 🦭");
-
-return;
-
-}
-
-
-
 try{
 
 
 await createUserWithEmailAndPassword(
+
 auth,
+
 email,
+
 password
+
 );
+
 
 
 alert("Аккаунт создан 🦭");
 
 
 }
+
 
 catch(e){
 
@@ -421,11 +632,12 @@ alert(e.message);
 
 
 
-window.login = async function(){
+window.login=async function(){
 
 
 let email =
 document.getElementById("email").value;
+
 
 
 let password =
@@ -437,16 +649,22 @@ try{
 
 
 await signInWithEmailAndPassword(
+
 auth,
+
 email,
+
 password
+
 );
+
 
 
 alert("Вы вошли 🌊");
 
 
 }
+
 
 catch(e){
 
@@ -472,7 +690,7 @@ user
 
 ?
 
-"✅ Вошёл: "+user.email
+"✅ "+user.email
 
 :
 
@@ -483,6 +701,7 @@ user
 let score = 0;
 
 let gameRunning = true;
+
 
 
 
@@ -499,10 +718,12 @@ behavior:"smooth"
 
 
 
+
 function moveFish(){
 
 
-if(!gameRunning) return;
+if(!gameRunning)
+return;
 
 
 
@@ -516,7 +737,7 @@ document.getElementById("gameArea");
 
 
 let x =
-Math.random() * 
+Math.random() *
 (area.clientWidth-70);
 
 
@@ -540,18 +761,25 @@ y+"px";
 
 
 
+
+
 window.catchFish=function(){
 
 
-if(!gameRunning) return;
+if(!gameRunning)
+return;
 
 
 
 score++;
 
 
-document.getElementById("score").innerHTML =
+
+document
+.getElementById("score")
+.innerHTML =
 score;
+
 
 
 moveFish();
@@ -563,9 +791,14 @@ moveFish();
 
 
 
+
+
 setInterval(
+
 moveFish,
+
 1500
+
 );
 
 
@@ -578,7 +811,7 @@ moveFish();
 
 
 
-window.stopRecord = async function(){
+window.stopRecord=async function(){
 
 
 if(!gameRunning)
@@ -597,24 +830,99 @@ prompt(
 
 
 
-if(!name || name.trim()==""){
+if(!name)
+return;
+
+
+
+
+if(hasBadWords(name)){
+
+
+alert(
+"❌ Такое имя запрещено"
+);
+
 
 return;
+
 
 }
 
 
 
 
-await push(
+let user =
+auth.currentUser;
 
-ref(db,"leaderboard"),
+
+
+if(!user){
+
+
+alert(
+"Сначала войдите в аккаунт"
+);
+
+
+return;
+
+
+}
+
+
+
+
+let userRecord =
+ref(
+db,
+"leaderboard/"+user.uid
+);
+
+
+
+let old =
+await get(userRecord);
+
+
+
+
+
+if(old.exists()){
+
+
+if(score <= old.val().score){
+
+
+alert(
+"Твой старый рекорд лучше 🐟"
+);
+
+
+return;
+
+
+}
+
+
+}
+
+
+
+
+
+
+await set(
+
+userRecord,
 
 {
 
 name:name,
 
-score:score
+score:score,
+
+uid:user.uid
 
 }
 
@@ -622,10 +930,10 @@ score:score
 
 
 
+
+
 alert(
-
-"🎉 Рекорд сохранён!\n🐟 Рыб: "+score
-
+"🏆 Новый рекорд сохранён!"
 );
 
 
@@ -641,14 +949,20 @@ loadLeaderboard();
 
 
 
-window.loadLeaderboard = async function(){
+
+window.loadLeaderboard=async function(){
 
 
 let list =
 document.getElementById("leaderboard");
 
 
-let snapshot =
+
+list.innerHTML="";
+
+
+
+let snap =
 await get(
 ref(db,"leaderboard")
 );
@@ -659,7 +973,7 @@ let players=[];
 
 
 
-snapshot.forEach((item)=>{
+snap.forEach((item)=>{
 
 
 players.push(item.val());
@@ -680,23 +994,21 @@ players.slice(0,10);
 
 
 
-list.innerHTML="";
-
-
-
-players.forEach((player,index)=>{
+players.forEach((p,i)=>{
 
 
 let li =
 document.createElement("li");
 
 
+
 li.innerHTML =
 
-(index+1)+". 🦭 "+
-player.name+
+(i+1)+
+". 🦭 "+
+p.name+
 " — 🐟 "+
-player.score;
+p.score;
 
 
 
@@ -711,11 +1023,249 @@ list.appendChild(li);
 
 
 
+
+
+
+// АДМИНКА
+
+
+window.adminLogin=function(){
+
+
+let user =
+auth.currentUser;
+
+
+
+if(!user){
+
+alert(
+"Войдите в аккаунт"
+);
+
+return;
+
+}
+
+
+
+if(user.email=="krotkov2701@gmail.com"){
+
+
+document
+.getElementById("adminPanel")
+.style.display="block";
+
+
+
+loadAdmin();
+
+
+alert(
+"⚙️ Админка включена"
+);
+
+
+}else{
+
+
+alert(
+"❌ Нет доступа"
+);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+async function loadAdmin(){
+
+
+let list =
+document.getElementById("adminList");
+
+
+
+list.innerHTML="";
+
+
+
+let snap =
+await get(
+ref(db,"leaderboard")
+);
+
+
+
+snap.forEach((item)=>{
+
+
+let data =
+item.val();
+
+
+
+let li =
+document.createElement("li");
+
+
+
+li.innerHTML =
+
+data.name+
+" 🐟 "+
+data.score+
+" ";
+
+
+
+let btn =
+document.createElement("button");
+
+
+
+btn.innerHTML =
+"❌";
+
+
+
+btn.onclick=async()=>{
+
+
+await remove(
+ref(db,"leaderboard/"+item.key)
+);
+
+
+loadAdmin();
+
 loadLeaderboard();
 
 
+};
 
-</script>
+
+
+li.appendChild(btn);
+
+
+
+list.appendChild(li);
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+window.clearLeaderboard=async function(){
+
+
+if(confirm("Удалить все рекорды?")){
+
+
+await remove(
+ref(db,"leaderboard")
+);
+
+
+
+loadLeaderboard();
+
+
+loadAdmin();
+
+
+}
+
+
+}
+<section id="games">
+
+<h2>🎮 Мини-игра</h2>
+
+
+<h3>
+🦭 Поймай рыбку!
+</h3>
+
+
+<p>
+Нажимай на рыбку и ставь свой рекорд 🐟
+</p>
+
+
+<h2>
+Счёт:
+<span id="score">
+0
+</span>
+🐟
+</h2>
+
+
+
+
+<div id="gameArea">
+
+
+<button id="fish" onclick="catchFish()">
+
+🐟
+
+</button>
+
+
+</div>
+
+
+
+<br>
+
+
+<button onclick="stopRecord()">
+
+⛔ Прекратить рекорд
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+<section style="text-align:center">
+
+
+<h2>⚙️ Панель управления</h2>
+
+
+<button onclick="adminLogin()">
+
+🔐 Открыть админку
+
+</button>
+
+
+</section>
+
 
 
 
@@ -731,11 +1281,15 @@ loadLeaderboard();
 
 
 <p>
-Красивые фотографии тюленей 🌊
+
+Красивые фотографии тюленей
+и жизнь океана 🌊
+
 </p>
 
 
 </section>
+
 
 
 
@@ -747,12 +1301,23 @@ loadLeaderboard();
 <h2>💰 Поддержать Seal World</h2>
 
 
+<p>
+
+Спасибо за поддержку 🦭
+
+</p>
+
+
+
 <button onclick="donate()">
+
 💙 Донат
+
 </button>
 
 
 </section>
+
 
 
 
@@ -764,12 +1329,16 @@ loadLeaderboard();
 <h2>💬 Наш Telegram</h2>
 
 
+
 <button onclick="telegram()">
+
 🦭 Вступить
+
 </button>
 
 
 </section>
+
 
 
 
@@ -785,27 +1354,39 @@ Seal World 🦭 | Сделано с любовью к тюленям
 
 
 
+
+
 <script>
 
 
 function donate(){
 
-window.location.href =
+
+window.location.href=
+
 "https://www.tbank.ru/rm/r_zEQLNzpFyK.XHCffLIsXV/0vMUS97784";
 
+
 }
+
 
 
 
 function telegram(){
 
-window.location.href =
+
+window.location.href=
+
 "https://t.me/SealKlub";
+
 
 }
 
 
+
 </script>
+
+
 
 
 
