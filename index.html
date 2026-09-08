@@ -15,225 +15,132 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
-
 body{
-
 margin:0;
-
 font-family:Arial,sans-serif;
-
 background:linear-gradient(#00c6ff,#003b70);
-
 color:white;
-
 }
-
 
 
 header{
-
 text-align:center;
-
 padding:60px 20px;
-
 background:rgba(0,0,0,.3);
-
 }
-
 
 
 .logo{
-
 font-size:100px;
-
 }
-
 
 
 h1{
-
 font-size:50px;
-
 }
-
 
 
 nav{
-
 text-align:center;
-
 padding:20px;
-
 }
-
 
 
 section{
-
 width:90%;
-
 max-width:900px;
-
 margin:25px auto;
-
 padding:25px;
-
 background:rgba(255,255,255,.15);
-
 border-radius:25px;
-
 backdrop-filter:blur(10px);
-
 }
-
 
 
 h2{
-
 color:#b8f3ff;
-
 }
-
 
 
 button{
-
 background:#00bfff;
-
 color:white;
-
 border:0;
-
 padding:15px 30px;
-
 border-radius:20px;
-
 font-size:17px;
-
 cursor:pointer;
-
 margin:5px;
-
 }
-
 
 
 button:hover{
-
 background:#007db8;
-
 }
-
 
 
 input{
-
 padding:12px;
-
 width:80%;
-
 margin:5px;
-
 border-radius:15px;
-
 border:0;
-
 }
-
 
 
 .fact{
-
 background:white;
-
 color:#123;
-
 padding:18px;
-
 margin:10px 0;
-
 border-radius:20px;
-
 }
 
 
-
-#leaderboard li{
-
+#leaderboard li,
+#adminList li{
 background:white;
-
 color:#123;
-
 padding:12px;
-
 margin:10px;
-
 border-radius:15px;
-
 list-style:none;
-
 }
-
 
 
 #gameArea{
-
 height:300px;
-
 background:#0077aa;
-
 border-radius:25px;
-
 position:relative;
-
 overflow:hidden;
-
 }
-
 
 
 #fish{
-
 position:absolute;
-
 font-size:35px;
-
 background:#ffd000;
-
 border-radius:50%;
-
 padding:10px;
-
 }
-
 
 
 #adminPanel{
-
 display:none;
-
 }
-
 
 
 img{
-
 max-width:90%;
-
 border-radius:25px;
-
 }
-
 
 
 footer{
-
 text-align:center;
-
 padding:30px;
-
 }
-
 
 </style>
 
@@ -245,27 +152,17 @@ padding:30px;
 
 <header>
 
-
 <div class="logo">
-
 🦭
-
 </div>
 
-
 <h1>
-
 Seal World
-
 </h1>
 
-
 <p>
-
 Удивительный мир тюленей 🌊
-
 </p>
-
 
 </header>
 
@@ -273,13 +170,9 @@ Seal World
 
 <nav>
 
-
 <button onclick="goGames()">
-
 🎮 Мини-игры
-
 </button>
-
 
 </nav>
 
@@ -288,59 +181,42 @@ Seal World
 
 <section>
 
-
-<h2>
-🌊 Кто такие тюлени?
-</h2>
-
+<h2>🌊 Кто такие тюлени?</h2>
 
 <p>
-
-Тюлени — морские млекопитающие.
+Тюлени — это морские млекопитающие.
 Они отлично плавают, ныряют и живут
-в холодных океанах.
-
+в океанах.
 </p>
-
 
 </section>
 
 
 
 
-
 <section>
 
-
-<h2>
-⭐ Факты о тюленях
-</h2>
-
+<h2>⭐ Факты о тюленях</h2>
 
 <div class="fact">
-🦭 Усы помогают чувствовать движение воды.
+🦭 Усы тюленей помогают чувствовать движение воды.
 </div>
-
 
 <div class="fact">
-❄️ Жир сохраняет тепло.
+❄️ Жировой слой сохраняет тепло.
 </div>
-
 
 <div class="fact">
-🌊 Некоторые тюлени ныряют очень глубоко.
+🌊 Некоторые тюлени могут глубоко нырять.
 </div>
-
 
 <div class="fact">
-🐟 Тюлени любят рыбу.
+🐟 Тюлени питаются рыбой.
 </div>
-
 
 <div class="fact">
-😴 Некоторые могут спать в воде.
+😴 Некоторые спят в воде.
 </div>
-
 
 </section>
 <section>
@@ -358,23 +234,17 @@ Seal World
 
 
 <button onclick="register()">
-
 📝 Создать аккаунт
-
 </button>
 
 
 <button onclick="login()">
-
 🔑 Войти
-
 </button>
 
 
 <p id="status">
-
 Вы не вошли
-
 </p>
 
 
@@ -402,15 +272,72 @@ Seal World
 
 
 
+<section id="games">
+
+<h2>🎮 Мини-игра</h2>
+
+
+<h3>
+🦭 Поймай рыбку!
+</h3>
+
+
+<h2>
+🐟 Счёт:
+<span id="score">0</span>
+</h2>
+
+
+<div id="gameArea">
+
+
+<button id="fish" onclick="catchFish()">
+🐟
+</button>
+
+
+</div>
+
+
+<br>
+
+
+<button onclick="stopRecord()">
+⛔ Прекратить рекорд
+</button>
+
+
+</section>
+
+
+
+
+
+
+<section style="text-align:center">
+
+
+<button onclick="adminLogin()">
+⚙️ Админка
+</button>
+
+
+</section>
+
+
+
+
+
 <section id="adminPanel">
 
-<h2>⚙️ Админка</h2>
+
+<h2>
+⚙️ Панель администратора
+</h2>
 
 
 <button onclick="clearLeaderboard()">
-
 🗑️ Очистить лидерборд
-
 </button>
 
 
@@ -418,6 +345,7 @@ Seal World
 
 
 </section>
+
 
 
 
@@ -468,8 +396,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 
-
-const firebaseConfig = {
+const firebaseConfig={
 
 
 apiKey:"AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
@@ -491,19 +418,13 @@ appId:"1:164301169854:web:b757d8bcffe0e2892f6aef"
 
 
 
-const app =
-initializeApp(firebaseConfig);
+const app=initializeApp(firebaseConfig);
 
 
-
-const auth =
-getAuth(app);
+const auth=getAuth(app);
 
 
-
-const db =
-getDatabase(app);
-
+const db=getDatabase(app);
 
 
 
@@ -511,72 +432,41 @@ getDatabase(app);
 
 const badWords=[
 
-
 "хуй",
-
 "хуи",
-
 "пизд",
-
 "еб",
-
 "бля",
-
 "сука",
-
 "долбоеб",
-
 "мудак",
 
-
 "fuck",
-
 "shit",
-
 "bitch",
 
-
 "нацист",
-
 "нацизм",
-
 "фашист",
-
 "фашизм",
-
 "гитлер",
-
 "hitler",
-
 "свастика",
-
-"heil",
-
-"расизм"
+"heil"
 
 ];
 
 
 
 
-
-
 function hasBadWords(text){
 
+let t=text.toLowerCase();
 
-let t =
-text.toLowerCase();
-
-
-
-return badWords.some(word=>
-
-t.includes(word)
-
-);
-
+return badWords.some(word=>t.includes(word));
 
 }
+
 
 
 
@@ -586,29 +476,19 @@ t.includes(word)
 window.register=async function(){
 
 
-let email =
-document.getElementById("email").value;
+let email=document.getElementById("email").value;
 
-
-
-let password =
-document.getElementById("password").value;
+let password=document.getElementById("password").value;
 
 
 
 try{
 
-
 await createUserWithEmailAndPassword(
-
 auth,
-
 email,
-
 password
-
 );
-
 
 
 alert("Аккаунт создан 🦭");
@@ -616,17 +496,13 @@ alert("Аккаунт создан 🦭");
 
 }
 
-
 catch(e){
 
 alert(e.message);
 
 }
 
-
 }
-
-
 
 
 
@@ -635,29 +511,19 @@ alert(e.message);
 window.login=async function(){
 
 
-let email =
-document.getElementById("email").value;
+let email=document.getElementById("email").value;
 
-
-
-let password =
-document.getElementById("password").value;
+let password=document.getElementById("password").value;
 
 
 
 try{
 
-
 await signInWithEmailAndPassword(
-
 auth,
-
 email,
-
 password
-
 );
-
 
 
 alert("Вы вошли 🌊");
@@ -665,17 +531,13 @@ alert("Вы вошли 🌊");
 
 }
 
-
 catch(e){
 
 alert(e.message);
 
 }
 
-
 }
-
-
 
 
 
@@ -684,28 +546,24 @@ alert(e.message);
 onAuthStateChanged(auth,(user)=>{
 
 
-document.getElementById("status").innerHTML =
+document.getElementById("status").innerHTML=
 
 user
-
 ?
-
 "✅ "+user.email
-
 :
-
 "❌ Вы не вошли";
 
 
 });
-let score = 0;
+let score=0;
 
-let gameRunning = true;
-
-
+let gameRunning=true;
 
 
-function goGames(){
+
+
+window.goGames=function(){
 
 document
 .getElementById("games")
@@ -713,7 +571,7 @@ document
 behavior:"smooth"
 });
 
-}
+};
 
 
 
@@ -722,64 +580,39 @@ behavior:"smooth"
 function moveFish(){
 
 
-if(!gameRunning)
-return;
+if(!gameRunning)return;
+
+
+let fish=document.getElementById("fish");
+
+let area=document.getElementById("gameArea");
+
+
+let x=Math.random()*(area.clientWidth-70);
+
+let y=Math.random()*(area.clientHeight-70);
 
 
 
-let fish =
-document.getElementById("fish");
+fish.style.left=x+"px";
 
-
-let area =
-document.getElementById("gameArea");
-
-
-
-let x =
-Math.random() *
-(area.clientWidth-70);
-
-
-
-let y =
-Math.random() *
-(area.clientHeight-70);
-
-
-
-fish.style.left =
-x+"px";
-
-
-fish.style.top =
-y+"px";
+fish.style.top=y+"px";
 
 
 }
-
-
-
 
 
 
 window.catchFish=function(){
 
 
-if(!gameRunning)
-return;
-
+if(!gameRunning)return;
 
 
 score++;
 
 
-
-document
-.getElementById("score")
-.innerHTML =
-score;
-
+document.getElementById("score").innerHTML=score;
 
 
 moveFish();
@@ -790,21 +623,9 @@ moveFish();
 
 
 
-
-
-
-setInterval(
-
-moveFish,
-
-1500
-
-);
-
-
+setInterval(moveFish,1500);
 
 moveFish();
-
 
 
 
@@ -814,25 +635,29 @@ moveFish();
 window.stopRecord=async function(){
 
 
-if(!gameRunning)
+if(!gameRunning)return;
+
+
+let user=auth.currentUser;
+
+
+if(!user){
+
+alert("Сначала войдите в аккаунт 🦭");
+
 return;
 
-
-
-gameRunning=false;
+}
 
 
 
-let name =
-prompt(
+let name=prompt(
 "Введите свой никнейм 🦭"
 );
 
 
 
-if(!name)
-return;
-
+if(!name)return;
 
 
 
@@ -846,67 +671,37 @@ alert(
 
 return;
 
-
 }
 
 
 
 
-let user =
-auth.currentUser;
-
-
-
-if(!user){
-
-
-alert(
-"Сначала войдите в аккаунт"
-);
-
-
-return;
-
-
-}
-
-
-
-
-let userRecord =
-ref(
+let recordRef=ref(
 db,
 "leaderboard/"+user.uid
 );
 
 
 
-let old =
-await get(userRecord);
+let old=await get(recordRef);
 
 
 
 
-
-if(old.exists()){
-
-
-if(score <= old.val().score){
+if(old.exists() && score<=old.val().score){
 
 
 alert(
-"Твой старый рекорд лучше 🐟"
+"Твой прошлый рекорд лучше 🐟"
 );
 
+
+gameRunning=false;
 
 return;
 
 
 }
-
-
-}
-
 
 
 
@@ -914,7 +709,7 @@ return;
 
 await set(
 
-userRecord,
+recordRef,
 
 {
 
@@ -930,15 +725,17 @@ uid:user.uid
 
 
 
-
-
 alert(
-"🏆 Новый рекорд сохранён!"
+"🏆 Рекорд сохранён!"
 );
 
 
 
 loadLeaderboard();
+
+
+
+gameRunning=false;
 
 
 }
@@ -949,21 +746,17 @@ loadLeaderboard();
 
 
 
-
 window.loadLeaderboard=async function(){
 
 
-let list =
-document.getElementById("leaderboard");
-
+let list=document.getElementById("leaderboard");
 
 
 list.innerHTML="";
 
 
 
-let snap =
-await get(
+let snap=await get(
 ref(db,"leaderboard")
 );
 
@@ -989,23 +782,15 @@ players.sort(
 
 
 
-players =
-players.slice(0,10);
+players.slice(0,10).forEach((p,i)=>{
 
 
-
-players.forEach((p,i)=>{
-
-
-let li =
-document.createElement("li");
+let li=document.createElement("li");
 
 
+li.innerHTML=
 
-li.innerHTML =
-
-(i+1)+
-". 🦭 "+
+(i+1)+". 🦭 "+
 p.name+
 " — 🐟 "+
 p.score;
@@ -1026,22 +811,17 @@ list.appendChild(li);
 
 
 
-// АДМИНКА
-
 
 window.adminLogin=function(){
 
 
-let user =
-auth.currentUser;
+let user=auth.currentUser;
 
 
 
 if(!user){
 
-alert(
-"Войдите в аккаунт"
-);
+alert("Войдите в аккаунт");
 
 return;
 
@@ -1049,29 +829,22 @@ return;
 
 
 
-if(user.email=="krotkov2701@gmail.com"){
+if(user.email==="krotkov2701@gmail.com"){
 
 
-document
-.getElementById("adminPanel")
-.style.display="block";
-
+document.getElementById("adminPanel").style.display="block";
 
 
 loadAdmin();
 
 
-alert(
-"⚙️ Админка включена"
-);
+alert("⚙️ Админка включена");
 
 
 }else{
 
 
-alert(
-"❌ Нет доступа"
-);
+alert("❌ Нет доступа");
 
 
 }
@@ -1088,17 +861,14 @@ alert(
 async function loadAdmin(){
 
 
-let list =
-document.getElementById("adminList");
-
+let list=document.getElementById("adminList");
 
 
 list.innerHTML="";
 
 
 
-let snap =
-await get(
+let snap=await get(
 ref(db,"leaderboard")
 );
 
@@ -1107,33 +877,25 @@ ref(db,"leaderboard")
 snap.forEach((item)=>{
 
 
-let data =
-item.val();
+let data=item.val();
+
+
+let li=document.createElement("li");
 
 
 
-let li =
-document.createElement("li");
-
-
-
-li.innerHTML =
+li.innerHTML=
 
 data.name+
 " 🐟 "+
-data.score+
-" ";
+data.score;
 
 
 
-let btn =
-document.createElement("button");
+let btn=document.createElement("button");
 
 
-
-btn.innerHTML =
-"❌";
-
+btn.innerHTML="❌";
 
 
 btn.onclick=async()=>{
@@ -1156,8 +918,8 @@ loadLeaderboard();
 li.appendChild(btn);
 
 
-
 list.appendChild(li);
+
 
 
 });
@@ -1185,7 +947,6 @@ ref(db,"leaderboard")
 
 loadLeaderboard();
 
-
 loadAdmin();
 
 
@@ -1193,79 +954,16 @@ loadAdmin();
 
 
 }
-<section id="games">
-
-<h2>🎮 Мини-игра</h2>
-
-
-<h3>
-🦭 Поймай рыбку!
-</h3>
-
-
-<p>
-Нажимай на рыбку и ставь свой рекорд 🐟
-</p>
-
-
-<h2>
-Счёт:
-<span id="score">
-0
-</span>
-🐟
-</h2>
-
-
-
-
-<div id="gameArea">
-
-
-<button id="fish" onclick="catchFish()">
-
-🐟
-
-</button>
-
-
-</div>
-
-
-
-<br>
-
-
-<button onclick="stopRecord()">
-
-⛔ Прекратить рекорд
-
-</button>
-
-
-
-</section>
 
 
 
 
 
 
-<section style="text-align:center">
+loadLeaderboard();
 
 
-<h2>⚙️ Панель управления</h2>
-
-
-<button onclick="adminLogin()">
-
-🔐 Открыть админку
-
-</button>
-
-
-</section>
-
+</script>
 
 
 
@@ -1281,15 +979,11 @@ loadAdmin();
 
 
 <p>
-
-Красивые фотографии тюленей
-и жизнь океана 🌊
-
+Красивые фотографии тюленей 🌊
 </p>
 
 
 </section>
-
 
 
 
@@ -1301,23 +995,12 @@ loadAdmin();
 <h2>💰 Поддержать Seal World</h2>
 
 
-<p>
-
-Спасибо за поддержку 🦭
-
-</p>
-
-
-
 <button onclick="donate()">
-
 💙 Донат
-
 </button>
 
 
 </section>
-
 
 
 
@@ -1329,16 +1012,12 @@ loadAdmin();
 <h2>💬 Наш Telegram</h2>
 
 
-
 <button onclick="telegram()">
-
 🦭 Вступить
-
 </button>
 
 
 </section>
-
 
 
 
@@ -1355,38 +1034,27 @@ Seal World 🦭 | Сделано с любовью к тюленям
 
 
 
-
 <script>
 
 
 function donate(){
 
-
 window.location.href=
-
 "https://www.tbank.ru/rm/r_zEQLNzpFyK.XHCffLIsXV/0vMUS97784";
 
-
 }
-
 
 
 
 function telegram(){
 
-
 window.location.href=
-
 "https://t.me/SealKlub";
-
 
 }
 
 
-
 </script>
-
-
 
 
 
