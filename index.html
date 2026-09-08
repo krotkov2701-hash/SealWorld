@@ -48,18 +48,13 @@ padding:20px;
 
 
 section{
-
 width:90%;
 max-width:900px;
 margin:25px auto;
 padding:25px;
-
 background:rgba(255,255,255,.15);
-
 border-radius:25px;
-
 backdrop-filter:blur(10px);
-
 }
 
 
@@ -71,41 +66,28 @@ color:#b8f3ff;
 button{
 
 background:#00bfff;
-
 color:white;
-
 border:0;
-
 padding:15px 30px;
-
 border-radius:20px;
-
 font-size:17px;
-
 cursor:pointer;
-
 margin:5px;
 
 }
 
 
 button:hover{
-
 background:#007db8;
-
 }
 
 
 input{
 
 padding:12px;
-
 width:80%;
-
 margin:5px;
-
 border-radius:15px;
-
 border:0;
 
 }
@@ -114,41 +96,29 @@ border:0;
 .fact{
 
 background:white;
-
 color:#123;
-
 padding:18px;
-
 margin:10px 0;
-
 border-radius:20px;
 
 }
 
 
-
 #playersList li{
 
 background:white;
-
 color:#123;
-
 padding:12px;
-
 margin:10px;
-
 border-radius:15px;
-
 list-style:none;
 
 }
 
 
-
 img{
 
 max-width:90%;
-
 border-radius:25px;
 
 }
@@ -157,8 +127,31 @@ border-radius:25px;
 footer{
 
 text-align:center;
-
 padding:30px;
+
+}
+
+
+/* мини-игра */
+
+#gameArea{
+
+height:300px;
+background:#0077aa;
+border-radius:25px;
+position:relative;
+overflow:hidden;
+
+}
+
+
+#fish{
+
+position:absolute;
+font-size:35px;
+border-radius:50%;
+background:#ffd000;
+padding:10px;
 
 }
 
@@ -171,119 +164,89 @@ padding:30px;
 <body>
 
 
-
 <header>
 
 <div class="logo">
 🦭
 </div>
 
-
 <h1>
 Seal World
 </h1>
-
 
 <p>
 Удивительный мир тюленей 🌊
 </p>
 
-
 </header>
-
 
 
 <nav>
 
 <button onclick="goGames()">
-
 🎮 Мини-игры
-
 </button>
 
 </nav>
-
-
 
 
 <section>
 
 <h2>🌊 Кто такие тюлени?</h2>
 
-
 <p>
-
 Тюлени — это морские млекопитающие,
 которые отлично приспособлены к жизни в воде.
 Они умеют плавать, нырять и выживать
 в холодных океанах.
-
 </p>
 
-
 </section>
-
-
-
 
 
 <section>
 
 <h2>⭐ Факты о тюленях</h2>
 
-
 <div class="fact">
 🦭 Усы тюленей помогают чувствовать движение воды.
 </div>
-
 
 <div class="fact">
 ❄️ Толстый слой жира сохраняет тепло.
 </div>
 
-
 <div class="fact">
 🌊 Некоторые тюлени могут глубоко нырять.
 </div>
 
-
 <div class="fact">
-🐟 Тюлени питаются рыбой и морскими животными.
+🐟 Тюлени питаются рыбой.
 </div>
-
 
 <div class="fact">
 😴 Некоторые тюлени могут спать в воде.
 </div>
 
-
 <div class="fact">
 👶 Детёныши долго находятся рядом с матерью.
 </div>
-
 
 <div class="fact">
 🧠 Тюлени способны обучаться.
 </div>
 
-
 <div class="fact">
-🌍 Тюлени важны для морской экосистемы.
+🌍 Тюлени важны для экосистемы океана.
 </div>
 
-
 </section>
-
-
-
-
 <section>
 
 <h2>📧 Аккаунт Seal World</h2>
 
 
 <input id="email" placeholder="Почта">
-
 
 <input id="password" type="password" placeholder="Пароль">
 
@@ -310,23 +273,18 @@ Seal World
 
 
 
-
 <section>
 
 <h2>🏆 Участники</h2>
 
 
 <button onclick="addNickname()">
-
 🦭 Добавить ник
-
 </button>
 
 
 <button onclick="adminLogin()">
-
 ⚙️ Админка
-
 </button>
 
 
@@ -338,7 +296,12 @@ Seal World
 
 
 </section>
+
+
+
+
 <script type="module">
+
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -370,7 +333,6 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 
-
 const firebaseConfig = {
 
 apiKey: "AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
@@ -395,9 +357,7 @@ measurementId: "G-QHSBB1W56Y"
 
 const app = initializeApp(firebaseConfig);
 
-
 const auth = getAuth(app);
-
 
 const db = getDatabase(app);
 
@@ -407,9 +367,6 @@ let adminMode = false;
 
 
 
-
-
-// Создание аккаунта
 
 window.register = async function(){
 
@@ -432,20 +389,14 @@ return;
 }
 
 
-
 try{
 
 
 await createUserWithEmailAndPassword(
-
 auth,
-
 email,
-
 password
-
 );
-
 
 
 alert("Аккаунт создан 🦭");
@@ -455,10 +406,8 @@ alert("Аккаунт создан 🦭");
 
 catch(error){
 
-
 alert(error.message);
 
-
 }
 
 
@@ -467,8 +416,6 @@ alert(error.message);
 
 
 
-
-// Вход
 
 window.login = async function(){
 
@@ -486,15 +433,10 @@ try{
 
 
 await signInWithEmailAndPassword(
-
 auth,
-
 email,
-
 password
-
 );
-
 
 
 alert("Вы вошли в Seal World 🌊");
@@ -504,10 +446,8 @@ alert("Вы вошли в Seal World 🌊");
 
 catch(error){
 
-
 alert(error.message);
 
-
 }
 
 
@@ -516,8 +456,6 @@ alert(error.message);
 
 
 
-
-// Проверка входа
 
 onAuthStateChanged(auth,(user)=>{
 
@@ -545,7 +483,10 @@ status.innerHTML =
 
 
 });
-// Добавление ника
+
+
+
+
 
 window.addNickname = async function(){
 
@@ -584,10 +525,7 @@ date:new Date().toLocaleDateString()
 
 
 
-alert(
-"Ты добавлен в Seal World 🏆"
-);
-
+alert("Ты добавлен в Seal World 🏆");
 
 
 loadPlayers();
@@ -599,7 +537,6 @@ loadPlayers();
 
 
 
-// Загрузка игроков
 
 async function loadPlayers(){
 
@@ -609,7 +546,6 @@ document.getElementById("playersList");
 
 
 list.innerHTML="";
-
 
 
 let snapshot =
@@ -695,15 +631,6 @@ number++;
 
 
 }
-
-
-
-
-
-
-
-// Админка
-
 window.adminLogin=function(){
 
 
@@ -760,6 +687,13 @@ alert(
 
 loadPlayers();
 
+
+</script>
+
+
+
+
+
 <section id="games">
 
 
@@ -774,35 +708,16 @@ loadPlayers();
 </p>
 
 
-
 <h2>
 Счёт: <span id="score">0</span> 🏆
 </h2>
 
 
 
-<div id="gameArea"
-
-style="
-height:300px;
-background:#0077aa;
-border-radius:25px;
-position:relative;
-overflow:hidden;
-">
+<div id="gameArea">
 
 
-<button id="fish"
-
-onclick="catchFish()"
-
-style="
-position:absolute;
-font-size:35px;
-border-radius:50%;
-background:#ffd000;
-padding:10px;
-">
+<button id="fish" onclick="catchFish()">
 
 🐟
 
@@ -810,7 +725,6 @@ padding:10px;
 
 
 </div>
-
 
 
 </section>
@@ -829,10 +743,8 @@ padding:10px;
 
 
 <p>
-
 Красивые фотографии тюленей
 и интересные моменты из жизни океана 🌊
-
 </p>
 
 
@@ -849,9 +761,7 @@ padding:10px;
 
 
 <p>
-
 Спасибо всем, кто помогает развитию клуба 🦭
-
 </p>
 
 
@@ -882,6 +792,7 @@ padding:10px;
 
 
 </section>
+
 
 
 
@@ -969,6 +880,8 @@ moveFish();
 
 
 
+window.catchFish = catchFish;
+
 
 
 setInterval(moveFish,1500);
@@ -989,8 +902,6 @@ window.location.href =
 
 
 }
-
-
 
 
 
