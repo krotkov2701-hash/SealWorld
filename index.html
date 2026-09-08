@@ -14,109 +14,169 @@
 box-sizing:border-box;
 }
 
+
 body{
+
 margin:0;
 font-family:Arial,sans-serif;
 background:linear-gradient(#00c6ff,#003b70);
 color:white;
+
 }
+
 
 
 header{
+
 text-align:center;
-padding:50px 20px;
+padding:60px 20px;
 background:rgba(0,0,0,.25);
+
 }
+
 
 
 .logo{
-font-size:90px;
+
+font-size:100px;
+
 }
+
 
 
 h1{
+
 font-size:50px;
+
 }
 
 
+
 section{
+
 width:90%;
 max-width:900px;
 margin:25px auto;
 padding:25px;
-border-radius:25px;
+
 background:rgba(255,255,255,.15);
+
+border-radius:25px;
+
 backdrop-filter:blur(10px);
+
 }
+
 
 
 h2{
-color:#b5f3ff;
+
+color:#b8f3ff;
+
 }
+
 
 
 button{
 
 background:#00bfff;
+
 color:white;
-border:0;
-padding:14px 25px;
+
+border:none;
+
+padding:15px 30px;
+
 border-radius:20px;
-cursor:pointer;
+
 font-size:17px;
+
+cursor:pointer;
+
 margin:5px;
 
 }
 
 
+
 button:hover{
-background:#008ccc;
+
+background:#007db8;
+
 }
+
 
 
 input{
 
-padding:12px;
-border-radius:15px;
-border:0;
-margin:5px;
 width:80%;
 
+padding:12px;
+
+margin:5px;
+
+border-radius:15px;
+
+border:none;
+
 }
+
 
 
 .fact{
 
 background:white;
+
 color:#123;
+
 padding:15px;
-border-radius:15px;
+
 margin:10px 0;
 
+border-radius:15px;
+
 }
+
 
 
 #playersList li{
 
 background:white;
+
 color:#123;
+
 padding:12px;
+
 margin:10px;
+
 border-radius:15px;
+
 list-style:none;
 
 }
 
 
+
 img{
 
 max-width:90%;
-border-radius:20px;
+
+border-radius:25px;
 
 }
 
 
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+}
+
 </style>
+
 
 </head>
 
@@ -124,15 +184,23 @@ border-radius:20px;
 <body>
 
 
+
 <header>
 
-<div class="logo">🦭</div>
+<div class="logo">
+🦭
+</div>
 
-<h1>Seal World</h1>
+
+<h1>
+Seal World
+</h1>
+
 
 <p>
-Добро пожаловать в мир тюленей 🌊
+Мир самых милых жителей океана 🌊
 </p>
+
 
 </header>
 
@@ -141,12 +209,19 @@ border-radius:20px;
 
 <section>
 
-<h2>🌊 О тюленях</h2>
+<h2>
+🌊 О тюленях
+</h2>
+
 
 <p>
-Тюлени — морские млекопитающие, которые отлично приспособлены
-к жизни в воде. Они умеют плавать, нырять и жить в холодных океанах.
+
+Тюлени — морские млекопитающие.
+Они отлично плавают, ныряют и могут жить
+в холодных водах океана.
+
 </p>
+
 
 </section>
 
@@ -155,7 +230,9 @@ border-radius:20px;
 
 <section>
 
-<h2>⭐ Интересные факты</h2>
+<h2>
+⭐ Факты
+</h2>
 
 
 <div class="fact">
@@ -164,7 +241,7 @@ border-radius:20px;
 
 
 <div class="fact">
-❄️ Жировой слой защищает их от холода.
+❄️ Жировой слой защищает от холода.
 </div>
 
 
@@ -185,15 +262,15 @@ border-radius:20px;
 
 <section>
 
-<h2>📧 Аккаунт Seal World</h2>
+<h2>
+📧 Аккаунт
+</h2>
 
 
 <input id="email" placeholder="Почта">
 
 
-<input id="password" 
-type="password"
-placeholder="Пароль">
+<input id="password" type="password" placeholder="Пароль">
 
 
 <br>
@@ -219,9 +296,13 @@ placeholder="Пароль">
 
 
 
+
 <section>
 
-<h2>🏆 Таблица участников</h2>
+
+<h2>
+🏆 Таблица участников
+</h2>
 
 
 <button onclick="addNickname()">
@@ -230,7 +311,7 @@ placeholder="Пароль">
 
 
 <button onclick="adminLogin()">
-⚙️ Администрация
+⚙️ Админка
 </button>
 
 
@@ -260,7 +341,6 @@ onAuthStateChanged
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-
 import {
 
 getDatabase,
@@ -277,7 +357,6 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 const firebaseConfig = {
-
 
 apiKey: "AIzaSyCVhsK3coMobtHtRtMiIX2kc5_M8iT8T1c",
 
@@ -314,8 +393,7 @@ let adminMode = false;
 
 
 
-
-// создание аккаунта
+// Создание аккаунта
 
 window.register = async function(){
 
@@ -333,9 +411,13 @@ try{
 
 
 await createUserWithEmailAndPassword(
+
 auth,
+
 email,
+
 password
+
 );
 
 
@@ -345,13 +427,10 @@ alert("Аккаунт создан 🦭");
 
 }
 
-
 catch(error){
-
 
 alert(error.message);
 
-
 }
 
 
@@ -360,9 +439,7 @@ alert(error.message);
 
 
 
-
-
-// вход
+// Вход
 
 window.login = async function(){
 
@@ -380,25 +457,26 @@ try{
 
 
 await signInWithEmailAndPassword(
+
 auth,
+
 email,
+
 password
+
 );
 
 
 
-alert("Вы вошли 🦭");
+alert("Вход выполнен 🦭");
 
 
 }
-
 
 catch(error){
 
-
 alert(error.message);
 
-
 }
 
 
@@ -408,8 +486,7 @@ alert(error.message);
 
 
 
-
-// статус пользователя
+// Проверка пользователя
 
 onAuthStateChanged(auth,(user)=>{
 
@@ -423,7 +500,7 @@ if(user){
 
 
 status.innerHTML =
-"✅ Вход: "+user.email;
+"✅ Вы вошли: "+user.email;
 
 
 }else{
@@ -436,9 +513,58 @@ status.innerHTML =
 }
 
 
+
 });
 
-// Добавить ник в таблицу
+
+
+
+// Админ доступ только для этой почты
+
+window.adminLogin = function(){
+
+
+let user = auth.currentUser;
+
+
+
+if(!user){
+
+
+alert("Сначала войдите в аккаунт");
+
+
+return;
+
+
+}
+
+
+
+if(user.email === "krotkov2701@gmail.com"){
+
+
+adminMode = true;
+
+
+alert("Админ доступ включён ⚙️🦭");
+
+
+loadPlayers();
+
+
+
+}else{
+
+
+alert("Нет доступа ❌");
+
+
+}
+
+
+}
+// Добавление ника
 
 window.addNickname = async function(){
 
@@ -473,10 +599,7 @@ email:auth.currentUser ? auth.currentUser.email : "Гость"
 
 
 
-alert(
-"Ты добавлен в таблицу 🏆"
-);
-
+alert("Ты добавлен в таблицу 🏆");
 
 
 loadPlayers();
@@ -488,14 +611,13 @@ loadPlayers();
 
 
 
-// Загрузка игроков
+// Загрузка участников
 
 async function loadPlayers(){
 
 
 let list =
 document.getElementById("playersList");
-
 
 
 list.innerHTML="";
@@ -507,7 +629,7 @@ await get(ref(db,"players"));
 
 
 
-let number=1;
+let number = 1;
 
 
 
@@ -524,29 +646,40 @@ number+". 🦭 "+player.val().name;
 
 
 
+// кнопка удаления только для админа
+
 if(adminMode){
 
 
-let del =
+let button =
 document.createElement("button");
 
 
-del.innerHTML =
+button.innerHTML =
 "❌ Удалить";
 
 
 
-del.onclick = function(){
+button.onclick = async function(){
 
 
-deletePlayer(player.key);
+await set(
+
+ref(db,"players/"+player.key),
+
+null
+
+);
+
+
+loadPlayers();
 
 
 };
 
 
 
-li.appendChild(del);
+li.appendChild(button);
 
 
 }
@@ -556,9 +689,7 @@ li.appendChild(del);
 list.appendChild(li);
 
 
-
 number++;
-
 
 
 });
@@ -570,131 +701,50 @@ number++;
 
 
 
-// Вход в админку
-
-window.adminLogin=function(){
-
-
-let password =
-prompt(
-"Введите пароль администратора"
-);
-
-
-
-if(password==="AdminItsYa"){
-
-
-adminMode=true;
-
-
-alert(
-"Админ режим включён ⚙️🦭"
-);
-
-
+// Загружаем список при открытии
 
 loadPlayers();
 
 
 
-}else{
 
-
-alert(
-"Неверный пароль ❌"
-);
-
-
-}
-
-
-}
-
-
-
-
-
-
-// Удаление игрока
-
-async function deletePlayer(name){
-
-
-let answer =
-confirm(
-"Удалить "+name+"?"
-);
-
-
-
-if(answer){
-
-
-await set(
-
-ref(db,"players/"+name),
-
-null
-
-);
-
-
-
-alert(
-"Игрок удалён 🦭"
-);
-
-
-
-loadPlayers();
-
-
-}
-
-
-}
-
-
-
-
-loadPlayers();
 </script>
+
 
 
 <section>
 
 <h2>📸 Галерея тюленей</h2>
 
-<img src="seal1.jpg" alt="Тюлень">
+<img src="seal1.jpg">
 
 
 <p>
-Каждый тюлень уникален. Они живут в океанах,
-исследуют моря и являются важной частью природы 🌊
+Добро пожаловать в мир тюленей 🦭
+Изучай факты и становись участником клуба!
 </p>
 
+
 </section>
+
 
 
 
 <section style="text-align:center">
 
-<h2>💙 Тюлений клуб</h2>
 
-<p>
-Присоединяйся к нашему сообществу!
-</p>
+<h2>💙 Наш Telegram</h2>
 
 
 <button onclick="telegram()">
 
-🦭 Telegram
+🦭 Вступить
 
 </button>
 
 
 </section>
+
 
 
 
@@ -706,16 +756,18 @@ loadPlayers();
 
 
 
+
 <script>
 
 function telegram(){
 
-window.location.href=
+window.location.href =
 "https://t.me/SealKlub";
 
 }
 
 </script>
+
 
 
 </body>
